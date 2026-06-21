@@ -1,15 +1,209 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>PLATINUMPESOS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLATINUMPESOS | NEW KIDS ON THE BLOCK</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
+<!-- INTRO -->
+<div id="intro">
+
+<img
+src="https://i.ibb.co/jPx1Y13V/ko.png"
+class="intro-logo"
+>
+
+<h1>PLATINUMPESOS</h1>
+<p>NEW KIDS ON THE BLOCK</p>
+
+</div>
+
+<!-- CART -->
+<div class="cart-icon" onclick="openCart()">
+🛒 <span id="cart-count">0</span>
+</div>
+
+<div class="cart" id="cart">
+
+<h2>YOUR CART</h2>
+
+<div id="cart-items"></div>
+
+<h3 id="total">
+TOTAL : P0
+</h3>
+
+<button id="checkout">
+PROCEED YOUR PURCHASE ON WHATSAPP
+</button>
+
+<button onclick="closeCart()">
+CLOSE
+</button>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+<img
+src="https://i.ibb.co/jPx1Y13V/ko.png"
+class="logo"
+>
+
 <h1>PLATINUMPESOS</h1>
 
+<p>
+NEW KIDS ON THE BLOCK
+</p>
+
+<a href="#shop">
+<button>
+SHOP NOW
+</button>
+</a>
+
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+
+<h2>AVAILABLE NOW</h2>
+
+<div class="products">
+
+<!-- CROP TOP -->
+<div class="product">
+
+<img src="https://i.ibb.co/XZySm3wQ/2d25b754-f2f4-488b-8543-400015c28e8a.png">
+
+<h3>LADIES CROP TOP</h3>
+
+<p>P169</p>
+
+<button class="add-cart"
+data-name="Ladies Crop Top"
+data-price="169">
+ADD TO CART
+</button>
+
+</div>
+
+<!-- CM TEE -->
+<div class="product">
+
+<img src="https://i.ibb.co/V0bwMJkp/c31efc15-78a5-4d8d-9b0f-de5db06ded85.png">
+
+<h3>CM TEE</h3>
+
+<p>P199</p>
+
+<button class="add-cart"
+data-name="CM Tee"
+data-price="199">
+ADD TO CART
+</button>
+
+</div>
+
+<!-- HOODIE -->
+<div class="product">
+
+<img src="https://i.ibb.co/mVR6VqCh/e434d09f-0de1-4fbf-aa8f-ddb28aa18a12.png">
+
+<h3>PARADOXES HOODIE</h3>
+
+<p>P299</p>
+
+<button class="add-cart"
+data-name="Paradoxes Hoodie"
+data-price="299">
+ADD TO CART
+</button>
+
+</div>
+
+<!-- BEANIE -->
+<div class="product">
+
+<img src="https://i.ibb.co/whb4J6gM/new-beanie.png">
+
+<h3>PARADOXES BEANIE</h3>
+
+<p>P120</p>
+
+<button class="add-cart"
+data-name="Paradoxes Beanie"
+data-price="120">
+ADD TO CART
+</button>
+
+</div>
+
+<!-- SOLD OUT -->
+<div class="product sold">
+
+<div class="sold-box">
+SOLD OUT
+</div>
+
+<h3>DDD TEE</h3>
+
+</div>
+
+<div class="product sold">
+
+<div class="sold-box">
+SOLD OUT
+</div>
+
+<h3>LD TEE</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NOTICE -->
+<section class="notice">
+
+<h2>IMPORTANT NOTICE</h2>
+
+<p>
+Orders are processed directly through WhatsApp after checkout.
+</p>
+
+<p>
+Limited stock available.
+</p>
+
+<h3>
+platinumpesos@gmail.com
+</h3>
+
+</section>
+
+<footer>
+
+<img
+src="https://i.ibb.co/jPx1Y13V/ko.png"
+class="footer-logo"
+>
+
+<h2>PLATINUMPESOS</h2>
+
 <p>NEW KIDS ON THE BLOCK</p>
+
+</footer>
 
 <script src="script.js"></script>
 
