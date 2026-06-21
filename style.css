@@ -20,7 +20,7 @@ top:0;
 left:0;
 width:100%;
 height:100vh;
-background:black;
+background:#000;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -36,14 +36,13 @@ animation:fadeIn 2s;
 }
 
 #intro h1{
-font-family:'Anton';
+font-family:'Anton',sans-serif;
 font-size:70px;
 color:white;
 }
 
 #intro p{
-color:#bbb;
-font-size:22px;
+color:#999;
 letter-spacing:4px;
 }
 
@@ -74,13 +73,9 @@ visibility:hidden;
 position:fixed;
 top:30px;
 right:40px;
-font-size:30px;
+font-size:32px;
 cursor:pointer;
 z-index:999;
-}
-
-#cart-count{
-font-size:18px;
 }
 
 .cart{
@@ -91,7 +86,7 @@ width:350px;
 height:100%;
 background:black;
 color:white;
-padding:40px 20px;
+padding:40px 25px;
 transition:.4s;
 overflow:auto;
 z-index:9999;
@@ -103,14 +98,14 @@ right:0;
 
 .cart h2{
 font-family:'Anton';
-font-size:40px;
+font-size:45px;
 margin-bottom:30px;
 }
 
 .cart button{
 width:100%;
 padding:15px;
-margin-top:20px;
+margin-top:15px;
 border:none;
 cursor:pointer;
 font-weight:bold;
@@ -142,7 +137,7 @@ letter-spacing:4px;
 .hero p{
 font-size:25px;
 color:grey;
-margin-top:20px;
+margin-top:15px;
 }
 
 .hero button{
@@ -178,7 +173,7 @@ gap:60px;
 .product{
 background:white;
 padding:30px;
-border-radius:15px;
+border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
@@ -188,7 +183,7 @@ max-width:300px;
 }
 
 .product h3{
-margin-top:20px;
+margin-top:25px;
 font-size:28px;
 }
 
@@ -197,6 +192,33 @@ margin-top:10px;
 font-size:24px;
 color:grey;
 }
+
+/* SIZES */
+
+.sizes{
+margin-top:20px;
+}
+
+.sizes button{
+padding:10px 15px;
+margin:5px;
+background:white;
+border:1px solid #111;
+cursor:pointer;
+transition:.3s;
+}
+
+.sizes button:hover{
+background:black;
+color:white;
+}
+
+.sizes button.active{
+background:black;
+color:white;
+}
+
+/* ADD TO CART */
 
 .add-cart{
 margin-top:25px;
@@ -207,11 +229,13 @@ border:none;
 cursor:pointer;
 }
 
+/* SOLD OUT */
+
 .sold{
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
+flex-direction:column;
 height:450px;
 }
 
@@ -219,7 +243,7 @@ height:450px;
 background:black;
 color:white;
 padding:15px 30px;
-margin-bottom:20px;
+margin-bottom:25px;
 }
 
 /* NOTICE */
@@ -266,8 +290,8 @@ margin-top:20px;
 }
 
 footer p{
+margin-top:15px;
 color:grey;
-margin-top:10px;
 }
 
 /* MOBILE */
