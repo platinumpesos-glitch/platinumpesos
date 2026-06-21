@@ -1,163 +1,158 @@
 let cart = [];
 
-const cartContainer =
-document.getElementById("cart");
+const cartContainer = document.getElementById("cart");
+const cartItems = document.getElementById("cart-items");
+const cartCount = document.getElementById("cart-count");
+const total = document.getElementById("total");
 
-const cartItems =
-document.getElementById("cart-items");
-
-const cartCount =
-document.getElementById("cart-count");
-
-const total =
-document.getElementById("total");
-
-
+/* OPEN & CLOSE CART */
 
 function openCart() {
-
-cartContainer.classList.add("active");
-
+  cartContainer.classList.add("active");
 }
 
 function closeCart() {
-
-cartContainer.classList.remove("active");
-
+  cartContainer.classList.remove("active");
 }
 
+/* SIZE SELECTION */
 
+document.querySelectorAll(".sizes button").forEach(button => {
+  button.addEventListener("click", () => {
 
+    const group =
+      button.parentElement.querySelectorAll("button");
 
+    group.forEach(btn => {
+      btn.classList.remove("active");
+    });
 
-document
-.querySelectorAll(".add-cart")
-.forEach(button => {
-
-button.addEventListener("click", () => {
-
-const name =
-button.dataset.name;
-
-const price =
-parseInt(button.dataset.price);
-
-cart.push({
-name,
-price
+    button.classList.add("active");
+  });
 });
 
-updateCart();
+/* ADD TO CART */
+
+document.querySelectorAll(".add-cart").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const product = button.parentElement;
+
+    const name = button.dataset.name;
+    const price = parseInt(button.dataset.price);
+
+    let size = "";
+
+    const sizeSection =
+      product.querySelector(".sizes");
+
+    if (sizeSection) {
+
+      const activeSize =
+        sizeSection.querySelector(".active");
+
+      if (!activeSize) {
+        alert("Please select a size.");
+        return;
+      }
+
+      size = activeSize.innerText;
+    }
+
+    cart.push({
+      name,
+      price,
+      size
+    });
+
+    updateCart();
+
+    alert(name + " added to cart.");
+  });
 
 });
 
-});
-
-
-
-
-
+/* UPDATE CART */
 
 function updateCart() {
 
-cartItems.innerHTML = "";
+  cartItems.innerHTML = "";
 
-let totalPrice = 0;
+  let totalPrice = 0;
 
+  cart.forEach(item => {
 
+    const div =
+      document.createElement("div");
 
-cart.forEach(item => {
+    div.classList.add("cart-item");
 
-cartItems.innerHTML += `
+    div.innerHTML = `
+      <div>
+        ${item.name}
+        ${item.size ? ` - ${item.size}` : ""}
+      </div>
 
-<div style="
-padding:15px 0;
-border-bottom:1px solid #333;
-display:flex;
-justify-content:space-between;
-">
+      <div>
+        P${item.price}
+      </div>
+    `;
 
-<span>${item.name}</span>
+    cartItems.appendChild(div);
 
-<span>P${item.price}</span>
+    totalPrice += item.price;
+  });
 
-</div>
-
-`;
-
-totalPrice += item.price;
-
-});
-
-
-
-cartCount.innerText =
-cart.length;
-
-total.innerText =
-"TOTAL : P" + totalPrice;
-
+  cartCount.innerText = cart.length;
+  total.innerText = "TOTAL : P" + totalPrice;
 }
 
-
-
-
-
+/* WHATSAPP CHECKOUT */
 
 document
 .getElementById("checkout")
 .addEventListener("click", () => {
 
-if (cart.length === 0) {
+  if (cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
 
-alert("Your cart is empty.");
+  let message =
+    "Hello PLATINUMPESOS,%0A%0A";
 
-return;
+  message +=
+    "I would like to order:%0A%0A";
 
-}
+  let totalPrice = 0;
 
+  cart.forEach(item => {
 
+    message +=
+      `• ${item.name}`;
 
-let message =
-"Hello PLATINUMPESOS,%0A%0A";
+    if (item.size) {
+      message += ` (${item.size})`;
+    }
 
-message +=
-"I would like to order:%0A%0A";
+    message +=
+      ` - P${item.price}%0A`;
 
+    totalPrice += item.price;
+  });
 
+  message +=
+    `%0ATOTAL : P${totalPrice}%0A%0A`;
 
-let totalPrice = 0;
+  message +=
+    "Name : %0A";
 
+  message +=
+    "Location : ";
 
-
-cart.forEach(item => {
-
-message +=
-`• ${item.name} - P${item.price}%0A`;
-
-totalPrice += item.price;
-
-});
-
-
-
-message +=
-`%0ATOTAL : P${totalPrice}%0A%0A`;
-
-message +=
-"Name : %0A";
-
-message +=
-"Location : ";
-
-
-
-window.open(
-
-`https://wa.me/26774303330?text=${message}`,
-
-"_blank"
-
-);
-
+  window.open(
+    `https://wa.me/26774303330?text=${message}`,
+    "_blank"
+  );
 });
