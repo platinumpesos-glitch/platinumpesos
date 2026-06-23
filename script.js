@@ -5,19 +5,22 @@ const cartItems = document.getElementById("cart-items");
 const cartCount = document.getElementById("cart-count");
 const total = document.getElementById("total");
 
-/* OPEN & CLOSE CART */
+/* OPEN CART */
 
 function openCart() {
   cartContainer.classList.add("active");
 }
 
+/* CLOSE CART */
+
 function closeCart() {
   cartContainer.classList.remove("active");
 }
 
-/* SIZE SELECTION */
+/* SIZE SELECT */
 
 document.querySelectorAll(".sizes button").forEach(button => {
+
   button.addEventListener("click", () => {
 
     const group =
@@ -28,7 +31,9 @@ document.querySelectorAll(".sizes button").forEach(button => {
     });
 
     button.classList.add("active");
+
   });
+
 });
 
 /* ADD TO CART */
@@ -40,7 +45,7 @@ document.querySelectorAll(".add-cart").forEach(button => {
     const product = button.parentElement;
 
     const name = button.dataset.name;
-    const price = parseInt(button.dataset.price);
+    const price = Number(button.dataset.price);
 
     let size = "";
 
@@ -53,7 +58,9 @@ document.querySelectorAll(".add-cart").forEach(button => {
         sizeSection.querySelector(".active");
 
       if (!activeSize) {
+
         alert("Please select a size.");
+
         return;
       }
 
@@ -68,7 +75,8 @@ document.querySelectorAll(".add-cart").forEach(button => {
 
     updateCart();
 
-    alert(name + " added to cart.");
+    alert(name + " added to cart");
+
   });
 
 });
@@ -89,23 +97,26 @@ function updateCart() {
     div.classList.add("cart-item");
 
     div.innerHTML = `
-      <div>
-        ${item.name}
-        ${item.size ? ` - ${item.size}` : ""}
-      </div>
+      <span>
+      ${item.name}
+      ${item.size ? " - " + item.size : ""}
+      </span>
 
-      <div>
-        P${item.price}
-      </div>
+      <span>
+      P${item.price}
+      </span>
     `;
 
     cartItems.appendChild(div);
 
     totalPrice += item.price;
+
   });
 
   cartCount.innerText = cart.length;
-  total.innerText = "TOTAL : P" + totalPrice;
+
+  total.innerText =
+    "TOTAL : P" + totalPrice;
 }
 
 /* WHATSAPP CHECKOUT */
@@ -115,7 +126,9 @@ document
 .addEventListener("click", () => {
 
   if (cart.length === 0) {
+
     alert("Your cart is empty.");
+
     return;
   }
 
@@ -130,29 +143,30 @@ document
   cart.forEach(item => {
 
     message +=
-      `• ${item.name}`;
+      "• " +
+      item.name;
 
     if (item.size) {
-      message += ` (${item.size})`;
+      message +=
+        " (" + item.size + ")";
     }
 
     message +=
-      ` - P${item.price}%0A`;
+      " - P" +
+      item.price +
+      "%0A";
 
     totalPrice += item.price;
   });
 
   message +=
-    `%0ATOTAL : P${totalPrice}%0A%0A`;
-
-  message +=
-    "Name : %0A";
-
-  message +=
-    "Location : ";
+    "%0ATOTAL : P" +
+    totalPrice;
 
   window.open(
-    `https://wa.me/26774303330?text=${message}`,
+    "https://wa.me/26774303330?text=" +
+    message,
     "_blank"
   );
+
 });
