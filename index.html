@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>PLATINUMPESOS | NEW KIDS ON THE BLOCK</title>
 
-  <meta name="description" content="PLATINUMPESOS official clothing website. Shop premium streetwear, hoodies, tees, beanies and crop tops. NEW KIDS ON THE BLOCK.">
+  <meta name="description" content="PLATINUMPESOS official clothing website. Shop premium streetwear, hoodies, tees, beanies and crop tops.">
 
-  <meta name="keywords" content="PLATINUMPESOS, Platinum Pesos, Botswana clothing, streetwear, fashion, hoodies, tees, beanies, crop tops, New Kids On The Block">
+  <meta name="keywords" content="PLATINUMPESOS, Botswana clothing, streetwear, hoodies, tees, beanies, crop tops">
 
   <meta name="author" content="PLATINUMPESOS">
-
   <meta name="robots" content="index, follow">
 
   <meta property="og:title" content="PLATINUMPESOS | NEW KIDS ON THE BLOCK">
-  <meta property="og:description" content="Official PLATINUMPESOS clothing website. Premium streetwear from Botswana.">
+  <meta property="og:description" content="Official PLATINUMPESOS clothing website.">
   <meta property="og:image" content="https://i.ibb.co/jPx1Y13V/ko.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://platinumpesos-glitch.github.io/platinumpesos/">
@@ -27,256 +25,187 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-</head>
 
 <body>
 
 <!-- INTRO -->
 
 <div id="intro">
-
-<img src="https://i.ibb.co/jPx1Y13V/ko.png"
-class="intro-logo">
-
-<h1>PLATINUMPESOS</h1>
-
-<p>NEW KIDS ON THE BLOCK</p>
-
+  <img src="https://i.ibb.co/jPx1Y13V/ko.png" class="intro-logo">
+  <h1>PLATINUMPESOS</h1>
+  <p>NEW KIDS ON THE BLOCK</p>
 </div>
 
 <!-- CART -->
 
 <div class="cart-icon" onclick="openCart()">
-
-🛒 <span id="cart-count">0</span>
-
+  🛒 <span id="cart-count">0</span>
 </div>
 
 <div class="cart" id="cart">
+  <h2>YOUR CART</h2>
 
-<h2>YOUR CART</h2>
+  <div id="cart-items"></div>
 
-<div id="cart-items"></div>
+  <h3 id="total">TOTAL : P0</h3>
 
-<h3 id="total">
+  <button id="checkout">
+    PROCEED YOUR PURCHASE ON WHATSAPP
+  </button>
 
-TOTAL : P0
-
-</h3>
-
-<button id="checkout">
-
-PROCEED YOUR PURCHASE ON WHATSAPP
-
-</button>
-
-<button onclick="closeCart()">
-
-CLOSE
-
-</button>
-
+  <button onclick="closeCart()">
+    CLOSE
+  </button>
 </div>
 
 <!-- HERO -->
 
 <section class="hero">
+  <img src="https://i.ibb.co/jPx1Y13V/ko.png" class="logo">
 
-<img src="https://i.ibb.co/jPx1Y13V/ko.png"
-class="logo">
+  <h1>PLATINUMPESOS</h1>
 
-<h1>PLATINUMPESOS</h1>
+  <p>NEW KIDS ON THE BLOCK</p>
 
-<p>NEW KIDS ON THE BLOCK</p>
-
-<a href="#shop">
-
-<button>
-
-SHOP NOW
-
-</button>
-
-</a>
-
-</section>
-
-<!-- SHOP -->
+  <a href="#shop">
+    <button>SHOP NOW</button>
+  </a>
+</section><!-- SHOP -->
 
 <section id="shop">
 
-<h2>AVAILABLE NOW</h2>
+  <h2>AVAILABLE NOW</h2>
 
-<div class="products">
+  <div class="products">
 
-<!-- LADIES CROP TOP -->
+    <!-- LADIES CROP TOP -->
 
-<div class="product">
+    <div class="product">
 
-<img src="https://i.ibb.co/XZySm3wQ/2d25b754-f2f4-488b-8543-400015c28e8a.png">
+      <img src="https://i.ibb.co/XZySm3wQ/2d25b754-f2f4-488b-8543-400015c28e8a.png">
 
-<h3>LADIES CROP TOP</h3>
+      <h3>LADIES CROP TOP</h3>
 
-<p>P169</p>
+      <p>P169</p>
 
-<div class="sizes">
+      <div class="sizes">
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
 
-<button>S</button>
-<button>M</button>
-<button>L</button>
-<button>XL</button>
+      <button class="add-cart"
+              data-name="Ladies Crop Top"
+              data-price="169">
+        ADD TO CART
+      </button>
 
-</div>
+    </div>
 
-<button class="add-cart"
-data-name="Ladies Crop Top"
-data-price="169">
+    <!-- CM TEE -->
 
-ADD TO CART
+    <div class="product">
 
-</button>
+      <img src="https://i.ibb.co/V0bwMJkp/c31efc15-78a5-4d8d-9b0f-de5db06ded85.png">
 
-</div>
+      <h3>CM TEE</h3>
 
-<!-- CM TEE -->
+      <p>P199</p>
 
-<div class="product">
+      <div class="sizes">
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
 
-<img src="https://i.ibb.co/V0bwMJkp/c31efc15-78a5-4d8d-9b0f-de5db06ded85.png">
+      <button class="add-cart"
+              data-name="CM Tee"
+              data-price="199">
+        ADD TO CART
+      </button>
 
-<h3>CM TEE</h3>
+    </div>
 
-<p>P199</p>
+    <!-- PARADOXES HOODIE -->
 
-<div class="sizes">
+    <div class="product">
 
-<button>S</button>
-<button>M</button>
-<button>L</button>
-<button>XL</button>
+      <img src="https://i.ibb.co/mVR6VqCh/e434d09f-0de1-4fbf-aa8f-ddb28aa18a12.png">
 
-</div>
+      <h3>PARADOXES HOODIE</h3>
 
-<button class="add-cart"
-data-name="CM Tee"
-data-price="199">
+      <p>P350</p>
 
-ADD TO CART
+      <div class="sizes">
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
 
-</button>
+      <button class="add-cart"
+              data-name="Paradoxes Hoodie"
+              data-price="350">
+        ADD TO CART
+      </button>
 
-</div>
+    </div>
 
-<!-- PARADOXES HOODIE -->
+    <!-- PARADOXES BEANIE -->
 
-<div class="product">
+    <div class="product">
 
-<img src="https://i.ibb.co/mVR6VqCh/e434d09f-0de1-4fbf-aa8f-ddb28aa18a12.png">
+      <img src="https://i.ibb.co/whb4J6gM/new-beanie.png">
 
-<h3>PARADOXES HOODIE</h3>
+      <h3>PARADOXES BEANIE</h3>
 
-<p>P299</p>
+      <p>P180</p>
 
-<div class="sizes">
+      <button class="add-cart"
+              data-name="Paradoxes Beanie"
+              data-price="180">
+        ADD TO CART
+      </button>
 
-<button>S</button>
-<button>M</button>
-<button>L</button>
-<button>XL</button>
+    </div>
 
-</div>
+    <!-- SOLD OUT ITEMS -->
 
-<button class="add-cart"
-data-name="Paradoxes Hoodie"
-data-price="299">
+    <div class="product sold">
+      <div class="sold-box">SOLD OUT</div>
+      <h3>DDD TEE</h3>
+    </div>
 
-ADD TO CART
+    <div class="product sold">
+      <div class="sold-box">SOLD OUT</div>
+      <h3>LD TEE</h3>
+    </div>
 
-</button>
+  </div>
 
-</div>
-
-<!-- PARADOXES BEANIE -->
-
-<div class="product">
-
-<img src="https://i.ibb.co/whb4J6gM/new-beanie.png">
-
-<h3>PARADOXES BEANIE</h3>
-
-<p>P120</p>
-
-<button class="add-cart"
-data-name="Paradoxes Beanie"
-data-price="120">
-
-ADD TO CART
-
-</button>
-
-</div>
-
-<!-- DDD TEE -->
-
-<div class="product sold">
-
-<div class="sold-box">
-
-SOLD OUT
-
-</div>
-
-<h3>DDD TEE</h3>
-
-</div>
-
-<!-- LD TEE -->
-
-<div class="product sold">
-
-<div class="sold-box">
-
-SOLD OUT
-
-</div>
-
-<h3>LD TEE</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- NOTICE -->
+</section><!-- NOTICE -->
 
 <section class="notice">
 
-<h2>IMPORTANT NOTICE</h2>
+  <h2>IMPORTANT NOTICE</h2>
 
-<p>
+  <p>
+    Available items are limited and stock may change without notice.
+  </p>
 
-Available items are limited and stock may change without notice.
+  <p>
+    Orders are processed directly through WhatsApp after checkout.
+  </p>
 
-</p>
+  <p>
+    For all enquiries please contact us below.
+  </p>
 
-<p>
-
-Orders are processed directly through WhatsApp after checkout.
-
-</p>
-
-<p>
-
-For all enquiries please contact us below.
-
-</p>
-
-<h3>
-
-platinumpesos@gmail.com
-
-</h3>
+  <h3>
+    platinumpesos@gmail.com
+  </h3>
 
 </section>
 
@@ -284,16 +213,14 @@ platinumpesos@gmail.com
 
 <footer>
 
-<img src="https://i.ibb.co/jPx1Y13V/ko.png"
-class="footer-logo">
+  <img src="https://i.ibb.co/jPx1Y13V/ko.png"
+       class="footer-logo">
 
-<h2>PLATINUMPESOS</h2>
+  <h2>PLATINUMPESOS</h2>
 
-<p>
-
-NEW KIDS ON THE BLOCK
-
-</p>
+  <p>
+    NEW KIDS ON THE BLOCK
+  </p>
 
 </footer>
 
