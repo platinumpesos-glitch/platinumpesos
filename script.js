@@ -20,8 +20,7 @@ function closeCart() {
 document.querySelectorAll(".sizes button").forEach(button => {
   button.addEventListener("click", () => {
 
-    const group =
-      button.parentElement.querySelectorAll("button");
+    const group = button.parentElement.querySelectorAll("button");
 
     group.forEach(btn => {
       btn.classList.remove("active");
@@ -44,13 +43,11 @@ document.querySelectorAll(".add-cart").forEach(button => {
 
     let size = "";
 
-    const sizeSection =
-      product.querySelector(".sizes");
+    const sizeSection = product.querySelector(".sizes");
 
     if (sizeSection) {
 
-      const activeSize =
-        sizeSection.querySelector(".active");
+      const activeSize = sizeSection.querySelector(".active");
 
       if (!activeSize) {
         alert("Please select a size.");
@@ -81,17 +78,15 @@ function updateCart() {
 
   let totalPrice = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
 
-    const div =
-      document.createElement("div");
+    const div = document.createElement("div");
 
     div.classList.add("cart-item");
 
     div.innerHTML = `
       <div>
-        ${item.name}
-        ${item.size ? ` - ${item.size}` : ""}
+        ${item.name}${item.size ? ` - ${item.size}` : ""}
       </div>
 
       <div>
@@ -111,48 +106,41 @@ function updateCart() {
 /* WHATSAPP CHECKOUT */
 
 document
-.getElementById("checkout")
-.addEventListener("click", () => {
+  .getElementById("checkout")
+  .addEventListener("click", () => {
 
-  if (cart.length === 0) {
-    alert("Your cart is empty.");
-    return;
-  }
-
-  let message =
-    "Hello PLATINUMPESOS,%0A%0A";
-
-  message +=
-    "I would like to order:%0A%0A";
-
-  let totalPrice = 0;
-
-  cart.forEach(item => {
-
-    message +=
-      `• ${item.name}`;
-
-    if (item.size) {
-      message += ` (${item.size})`;
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+      return;
     }
 
+    let message =
+      "Hello PLATINUMPESOS,%0A%0A";
+
     message +=
-      ` - P${item.price}%0A`;
+      "I would like to order:%0A%0A";
 
-    totalPrice += item.price;
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+
+      message += `• ${item.name}`;
+
+      if (item.size) {
+        message += ` (${item.size})`;
+      }
+
+      message += ` - P${item.price}%0A`;
+
+      totalPrice += item.price;
+    });
+
+    message += `%0ATOTAL : P${totalPrice}%0A%0A`;
+    message += "Name : %0A";
+    message += "Location : ";
+
+    window.open(
+      `https://wa.me/26774303330?text=${message}`,
+      "_blank"
+    );
   });
-
-  message +=
-    `%0ATOTAL : P${totalPrice}%0A%0A`;
-
-  message +=
-    "Name : %0A";
-
-  message +=
-    "Location : ";
-
-  window.open(
-    `https://wa.me/26774303330?text=${message}`,
-    "_blank"
-  );
-});
