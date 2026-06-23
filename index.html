@@ -1,32 +1,17 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PLATINUMPESOS | NEW KIDS ON THE BLOCK</title>
+<title>PLATINUMPESOS | NEW KIDS ON THE BLOCK</title>
 
-  <meta name="description" content="PLATINUMPESOS official clothing website. Shop premium streetwear, hoodies, tees, beanies and crop tops. NEW KIDS ON THE BLOCK.">
+<meta name="description" content="PLATINUMPESOS official clothing website. Premium streetwear from Botswana.">
 
-  <meta name="keywords" content="PLATINUMPESOS, Platinum Pesos, Botswana clothing, streetwear, fashion, hoodies, tees, beanies, crop tops, New Kids On The Block">
+<link rel="stylesheet" href="style.css">
 
-  <meta name="author" content="PLATINUMPESOS">
-
-  <meta name="robots" content="index, follow">
-
-  <meta property="og:title" content="PLATINUMPESOS | NEW KIDS ON THE BLOCK">
-  <meta property="og:description" content="Official PLATINUMPESOS clothing website. Premium streetwear from Botswana.">
-  <meta property="og:image" content="https://i.ibb.co/jPx1Y13V/ko.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://platinumpesos-glitch.github.io/platinumpesos/">
-
-  <link rel="icon" href="https://i.ibb.co/jPx1Y13V/ko.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -35,21 +20,14 @@
 
 <div id="intro">
 
-<img src="https://i.ibb.co/jPx1Y13V/ko.png"
-class="intro-logo">
-
-<h1>PLATINUMPESOS</h1>
-
-<p>NEW KIDS ON THE BLOCK</p>
+<img src="https://i.ibb.co/jPx1Y13V/ko.png" class="intro-logo">
 
 </div>
 
 <!-- CART -->
 
 <div class="cart-icon" onclick="openCart()">
-
 🛒 <span id="cart-count">0</span>
-
 </div>
 
 <div class="cart" id="cart">
@@ -58,22 +36,14 @@ class="intro-logo">
 
 <div id="cart-items"></div>
 
-<h3 id="total">
-
-TOTAL : P0
-
-</h3>
+<h3 id="total">TOTAL : P0</h3>
 
 <button id="checkout">
-
 PROCEED YOUR PURCHASE ON WHATSAPP
-
 </button>
 
 <button onclick="closeCart()">
-
 CLOSE
-
 </button>
 
 </div>
@@ -82,21 +52,14 @@ CLOSE
 
 <section class="hero">
 
-<img src="https://i.ibb.co/jPx1Y13V/ko.png"
-class="logo">
+<img src="https://i.ibb.co/jPx1Y13V/ko.png" class="logo">
 
 <h1>PLATINUMPESOS</h1>
 
 <p>NEW KIDS ON THE BLOCK</p>
 
 <a href="#shop">
-
-<button>
-
-SHOP NOW
-
-</button>
-
+<button>SHOP NOW</button>
 </a>
 
 </section>
@@ -109,7 +72,7 @@ SHOP NOW
 
 <div class="products">
 
-<!-- LADIES CROP TOP -->
+<!-- CROP TOP -->
 
 <div class="product">
 
@@ -120,12 +83,10 @@ SHOP NOW
 <p>P169</p>
 
 <div class="sizes">
-
 <button>S</button>
 <button>M</button>
 <button>L</button>
 <button>XL</button>
-
 </div>
 
 <button class="add-cart"
@@ -149,12 +110,10 @@ ADD TO CART
 <p>P199</p>
 
 <div class="sizes">
-
 <button>S</button>
 <button>M</button>
 <button>L</button>
 <button>XL</button>
-
 </div>
 
 <button class="add-cart"
@@ -167,7 +126,7 @@ ADD TO CART
 
 </div>
 
-<!-- PARADOXES HOODIE -->
+<!-- HOODIE -->
 
 <div class="product">
 
@@ -178,17 +137,15 @@ ADD TO CART
 <p>P350</p>
 
 <div class="sizes">
-
 <button>S</button>
 <button>M</button>
 <button>L</button>
 <button>XL</button>
-
 </div>
 
 <button class="add-cart"
 data-name="Paradoxes Hoodie"
-data-price="350"
+data-price="350">
 
 ADD TO CART
 
@@ -196,7 +153,7 @@ ADD TO CART
 
 </div>
 
-<!-- PARADOXES BEANIE -->
+<!-- BEANIE -->
 
 <div class="product">
 
@@ -208,7 +165,7 @@ ADD TO CART
 
 <button class="add-cart"
 data-name="Paradoxes Beanie"
-data-price="180"
+data-price="180">
 
 ADD TO CART
 
@@ -216,31 +173,31 @@ ADD TO CART
 
 </div>
 
-<!-- DDD TEE -->
+<!-- DDD -->
 
-<div class="product sold">
-
-<div class="sold-box">
-
-SOLD OUT
-
-</div>
+<div class="product">
 
 <h3>DDD TEE</h3>
 
-</div>
+<p>SOLD OUT</p>
 
-<!-- LD TEE -->
-
-<div class="product sold">
-
-<div class="sold-box">
-
+<button class="sold-out">
 SOLD OUT
+</button>
 
 </div>
+
+<!-- LD -->
+
+<div class="product">
 
 <h3>LD TEE</h3>
+
+<p>SOLD OUT</p>
+
+<button class="sold-out">
+SOLD OUT
+</button>
 
 </div>
 
@@ -255,45 +212,26 @@ SOLD OUT
 <h2>IMPORTANT NOTICE</h2>
 
 <p>
-
-Available items are limited and stock may change without notice.
-
+Orders are processed directly through WhatsApp.
 </p>
 
 <p>
-
-Orders are processed directly through WhatsApp after checkout.
-
-</p>
-
-<p>
-
-For all enquiries please contact us below.
-
+Limited stock available.
 </p>
 
 <h3>
-
 platinumpesos@gmail.com
-
 </h3>
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
 
-<img src="https://i.ibb.co/jPx1Y13V/ko.png"
-class="footer-logo">
+<img src="https://i.ibb.co/jPx1Y13V/ko.png" class="footer-logo">
 
 <h2>PLATINUMPESOS</h2>
 
-<p>
-
-NEW KIDS ON THE BLOCK
-
-</p>
+<p>NEW KIDS ON THE BLOCK</p>
 
 </footer>
 
@@ -301,3 +239,4 @@ NEW KIDS ON THE BLOCK
 
 </body>
 </html>
+```
