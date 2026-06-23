@@ -30,9 +30,9 @@ animation:fadeOut 3s forwards;
 }
 
 .intro-logo{
-width:180px;
+width:260px;
 margin-bottom:30px;
-animation:fadeIn 2s;
+animation:logoShrink 10s forwards;
 }
 
 #intro h1{
@@ -321,4 +321,45 @@ justify-content:space-between;
 padding:15px 0;
 border-bottom:1px solid #333;
 font-size:18px;
+}
+@keyframes logoShrink{
+
+0%{
+width:260px;
+opacity:1;
+transform:scale(1);
+}
+
+70%{
+width:120px;
+transform:scale(.8);
+}
+
+100%{
+width:70px;
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+opacity:1;
+}
+
+}
+
+@keyframes introFade{
+
+0%{
+background:black;
+opacity:1;
+}
+
+85%{
+opacity:1;
+}
+
+100%{
+background:transparent;
+pointer-events:none;
+}
+
 }
