@@ -1,76 +1,125 @@
 let cart = [];
 
-const cartContainer = document.getElementById("cart");
-const cartItems = document.getElementById("cart-items");
-const cartCount = document.getElementById("cart-count");
-const total = document.getElementById("total");
+const cartContainer =
+document.getElementById("cart");
 
-/* OPEN & CLOSE CART */
+const cartItems =
+document.getElementById("cart-items");
+
+const cartCount =
+document.getElementById("cart-count");
+
+const total =
+document.getElementById("total");
+
+
+/* ======================
+OPEN & CLOSE CART
+====================== */
 
 function openCart() {
+
   cartContainer.classList.add("active");
+
 }
 
 function closeCart() {
+
   cartContainer.classList.remove("active");
+
 }
 
-/* SIZE SELECTION */
 
-document.querySelectorAll(".sizes button").forEach(button => {
+/* ======================
+SIZE SELECTION
+====================== */
+
+document
+.querySelectorAll(".sizes button")
+.forEach(button => {
+
   button.addEventListener("click", () => {
 
-    const group = button.parentElement.querySelectorAll("button");
+    const parent =
+    button.parentElement;
 
-    group.forEach(btn => {
+    parent
+    .querySelectorAll("button")
+    .forEach(btn => {
+
       btn.classList.remove("active");
+
     });
 
     button.classList.add("active");
+
   });
+
 });
 
-/* ADD TO CART */
 
-document.querySelectorAll(".add-cart").forEach(button => {
+/* ======================
+ADD TO CART
+====================== */
+
+document
+.querySelectorAll(".add-cart")
+.forEach(button => {
 
   button.addEventListener("click", () => {
 
-    const product = button.parentElement;
+    const product =
+    button.parentElement;
 
-    const name = button.dataset.name;
-    const price = parseInt(button.dataset.price);
+    const name =
+    button.dataset.name;
+
+    const price =
+    parseInt(button.dataset.price);
 
     let size = "";
 
-    const sizeSection = product.querySelector(".sizes");
+    const sizes =
+    product.querySelector(".sizes");
 
-    if (sizeSection) {
+    if (sizes) {
 
-      const activeSize = sizeSection.querySelector(".active");
+      const activeSize =
+      sizes.querySelector(".active");
 
       if (!activeSize) {
-        alert("Please select a size.");
+
+        alert(
+          "Please select a size."
+        );
+
         return;
+
       }
 
-      size = activeSize.innerText;
+      size =
+      activeSize.innerText;
+
     }
 
     cart.push({
+
       name,
       price,
       size
+
     });
 
     updateCart();
 
-    alert(name + " added to cart.");
   });
 
 });
 
-/* UPDATE CART */
+
+/* ======================
+UPDATE CART
+====================== */
 
 function updateCart() {
 
@@ -78,69 +127,166 @@ function updateCart() {
 
   let totalPrice = 0;
 
-  cart.forEach((item, index) => {
+  cart.forEach((item,index)=>{
 
-    const div = document.createElement("div");
+    const div =
+    document.createElement("div");
 
     div.classList.add("cart-item");
 
     div.innerHTML = `
+
       <div>
-        ${item.name}${item.size ? ` - ${item.size}` : ""}
+
+        ${item.name}
+        ${item.size ? " - "+item.size : ""}
+
       </div>
 
       <div>
+
         P${item.price}
+
       </div>
+
     `;
 
     cartItems.appendChild(div);
 
     totalPrice += item.price;
+
   });
 
-  cartCount.innerText = cart.length;
-  total.innerText = "TOTAL : P" + totalPrice;
+  cartCount.innerText =
+  cart.length;
+
+  total.innerText =
+  "TOTAL : P" + totalPrice;
+
 }
 
-/* WHATSAPP CHECKOUT */
+
+/* ======================
+WHATSAPP CHECKOUT
+====================== */
 
 document
-  .getElementById("checkout")
-  .addEventListener("click", () => {
+.getElementById("checkout")
+.addEventListener("click",()=>{
 
-    if (cart.length === 0) {
-      alert("Your cart is empty.");
-      return;
-    }
+  if(cart.length===0){
 
-    let message =
-      "Hello PLATINUMPESOS,%0A%0A";
+    alert(
+      "Your cart is empty."
+    );
+
+    return;
+
+  }
+
+  let message =
+  "Hello PLATINUMPESOS,%0A%0A";
+
+  message +=
+  "I would like to order:%0A%0A";
+
+  let totalPrice = 0;
+
+  cart.forEach(item=>{
 
     message +=
-      "I would like to order:%0A%0A";
+    "• "
+    + item.name;
 
-    let totalPrice = 0;
+    if(item.size){
 
-    cart.forEach(item => {
+      message +=
+      " ("
+      + item.size
+      + ")";
 
-      message += `• ${item.name}`;
+    }
 
-      if (item.size) {
-        message += ` (${item.size})`;
-      }
+    message +=
+    " - P"
+    + item.price
+    + "%0A";
 
-      message += ` - P${item.price}%0A`;
+    totalPrice +=
+    item.price;
 
-      totalPrice += item.price;
-    });
-
-    message += `%0ATOTAL : P${totalPrice}%0A%0A`;
-    message += "Name : %0A";
-    message += "Location : ";
-
-    window.open(
-      `https://wa.me/26774303330?text=${message}`,
-      "_blank"
-    );
   });
+
+  message +=
+  "%0A";
+
+  message +=
+  "TOTAL : P"
+  + totalPrice
+  + "%0A%0A";
+
+  message +=
+  "Name : %0A";
+
+  message +=
+  "Location : %0A";
+
+  message +=
+  "Phone Number : ";
+
+  window.open(
+
+    "https://wa.me/26774303330?text="
+    + message,
+
+    "_blank"
+
+  );
+
+});
+
+
+/* ======================
+ESC KEY CLOSE CART
+====================== */
+
+document.addEventListener(
+"keydown",
+e=>{
+
+  if(e.key==="Escape"){
+
+    closeCart();
+
+  }
+
+});
+
+
+/* ======================
+CLICK OUTSIDE CLOSE
+====================== */
+
+document.addEventListener(
+"click",
+e=>{
+
+  if(
+
+    cartContainer.classList.contains("active")
+
+    &&
+
+    !cartContainer.contains(e.target)
+
+    &&
+
+    !e.target.closest(".cart-icon")
+
+  ){
+
+    closeCart();
+
+  }
+
+});
