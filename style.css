@@ -986,3 +986,115 @@ font-size:40px;
 }
 
 }
+/* ===========================
+LUXURY VIDEO GATE
+=========================== */
+
+#video-gate{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#000;
+overflow:hidden;
+z-index:100000;
+}
+
+#intro-video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.video-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.25);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.gate-logo{
+width:150px;
+margin-bottom:30px;
+animation:gateFade 1.8s ease;
+}
+
+.video-overlay h1{
+font-family:'Anton',sans-serif;
+font-size:85px;
+color:#fff;
+letter-spacing:6px;
+line-height:1;
+}
+
+.video-overlay p{
+margin-top:15px;
+font-size:16px;
+letter-spacing:7px;
+color:#b5b5b5;
+}
+
+#enter-store{
+margin-top:60px;
+padding:18px 55px;
+background:transparent;
+border:1px solid #fff;
+color:#fff;
+font-size:14px;
+font-weight:700;
+letter-spacing:5px;
+cursor:pointer;
+transition:.4s;
+}
+
+#enter-store:hover{
+background:#fff;
+color:#000;
+transform:translateY(-3px);
+}
+
+#site-content{
+display:none;
+}
+
+@keyframes gateFade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:768px){
+
+.gate-logo{
+width:100px;
+}
+
+.video-overlay h1{
+font-size:45px;
+}
+
+.video-overlay p{
+font-size:12px;
+letter-spacing:4px;
+}
+
+#enter-store{
+padding:16px 42px;
+font-size:12px;
+letter-spacing:3px;
+}
+
+}
