@@ -290,3 +290,54 @@ e=>{
   }
 
 });
+/* ======================
+LUXURY VIDEO GATE
+====================== */
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+  const gate =
+  document.getElementById(
+    "video-gate"
+  );
+
+  const site =
+  document.getElementById(
+    "site-content"
+  );
+
+  const enter =
+  document.getElementById(
+    "enter-store"
+  );
+
+  if(!gate || !site || !enter){
+    return;
+  }
+
+  site.style.display = "none";
+
+  enter.addEventListener(
+  "click",
+  ()=>{
+
+    gate.style.transition =
+    "opacity .8s ease";
+
+    gate.style.opacity = "0";
+
+    setTimeout(()=>{
+
+      gate.style.display =
+      "none";
+
+      site.style.display =
+      "block";
+
+    },800);
+
+  });
+
+});
