@@ -1,343 +1,475 @@
+/*=====================================================
+PLATINUMPESOS®
+PREMIUM SCRIPT
+PART 1
+=====================================================*/
+
 let cart = [];
 
-const cartContainer =
-document.getElementById("cart");
+const cartContainer = document.getElementById("cart");
+const cartItems = document.getElementById("cart-items");
+const cartCount = document.getElementById("cart-count");
+const total = document.getElementById("total");
 
-const cartItems =
-document.getElementById("cart-items");
+/*=====================================================
+VIDEO GATE
+=====================================================*/
 
-const cartCount =
-document.getElementById("cart-count");
+document.addEventListener("DOMContentLoaded", () => {
 
-const total =
-document.getElementById("total");
+const gate = document.getElementById("video-gate");
+const site = document.getElementById("site-content");
+const enter = document.getElementById("enter-store");
+const video = document.getElementById("intro-video");
 
+if(video){
 
-/* ======================
-OPEN & CLOSE CART
-====================== */
+video.muted = true;
 
-function openCart() {
+video.setAttribute("playsinline","");
 
-  cartContainer.classList.add("active");
+video.setAttribute("webkit-playsinline","");
+
+video.play().catch(()=>{});
 
 }
 
-function closeCart() {
+site.style.display="none";
 
-  cartContainer.classList.remove("active");
+enter.addEventListener("click",()=>{
 
-}
+gate.classList.add("hide");
 
+setTimeout(()=>{
 
-/* ======================
-SIZE SELECTION
-====================== */
+gate.style.display="none";
 
-document
-.querySelectorAll(".sizes button")
-.forEach(button => {
+site.style.display="block";
 
-  button.addEventListener("click", () => {
+window.scrollTo({
 
-    const parent =
-    button.parentElement;
+top:0,
 
-    parent
-    .querySelectorAll("button")
-    .forEach(btn => {
-
-      btn.classList.remove("active");
-
-    });
-
-    button.classList.add("active");
-
-  });
+behavior:"smooth"
 
 });
 
+},900);
 
-/* ======================
+});
+
+});
+
+/*=====================================================
+OPEN CART
+=====================================================*/
+
+function openCart(){
+
+cartContainer.classList.add("active");
+
+}
+
+/*=====================================================
+CLOSE CART
+=====================================================*/
+
+function closeCart(){
+
+cartContainer.classList.remove("active");
+
+}
+
+/*=====================================================
+SIZE SELECTOR
+=====================================================*/
+
+document.querySelectorAll(".sizes button").forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+const parent = button.parentElement;
+
+parent.querySelectorAll("button").forEach(btn=>{
+
+btn.classList.remove("active");
+
+});
+
+button.classList.add("active");
+
+});
+
+});
+
+/*=====================================================
 ADD TO CART
-====================== */
+=====================================================*/
 
-document
-.querySelectorAll(".add-cart")
-.forEach(button => {
+document.querySelectorAll(".add-cart").forEach(button=>{
 
-  button.addEventListener("click", () => {
+button.addEventListener("click",()=>{
 
-    const product =
-    button.parentElement;
+const product = button.closest(".product");
 
-    const name =
-    button.dataset.name;
+const name = button.dataset.name;
 
-    const price =
-    parseInt(button.dataset.price);
+const price = Number(button.dataset.price);
 
-    let size = "";
+let size = "";
 
-    const sizes =
-    product.querySelector(".sizes");
+const sizes = product.querySelector(".sizes");
 
-    if (sizes) {
+if(sizes){
 
-      const activeSize =
-      sizes.querySelector(".active");
+const active = sizes.querySelector(".active");
 
-      if (!activeSize) {
+if(!active){
 
-        alert(
-          "Please select a size."
-        );
+alert("Please select a size.");
 
-        return;
-
-      }
-
-      size =
-      activeSize.innerText;
-
-    }
-
-    cart.push({
-
-      name,
-      price,
-      size
-
-    });
-
-    updateCart();
-
-  });
-
-});
-
-
-/* ======================
-UPDATE CART
-====================== */
-
-function updateCart() {
-
-  cartItems.innerHTML = "";
-
-  let totalPrice = 0;
-
-  cart.forEach((item,index)=>{
-
-    const div =
-    document.createElement("div");
-
-    div.classList.add("cart-item");
-
-    div.innerHTML = `
-
-      <div>
-
-        ${item.name}
-        ${item.size ? " - "+item.size : ""}
-
-      </div>
-
-      <div>
-
-        P${item.price}
-
-      </div>
-
-    `;
-
-    cartItems.appendChild(div);
-
-    totalPrice += item.price;
-
-  });
-
-  cartCount.innerText =
-  cart.length;
-
-  total.innerText =
-  "TOTAL : P" + totalPrice;
+return;
 
 }
 
+size = active.innerText;
 
-/* ======================
+}
+
+cart.push({
+
+name,
+
+price,
+
+size
+
+});
+
+button.innerText="ADDED ✓";
+
+button.style.background="#18c964";
+
+button.style.color="#fff";
+
+setTimeout(()=>{
+
+button.innerText="ADD TO CART";
+
+button.style.background="";
+
+button.style.color="";
+
+},1200);
+
+updateCart();
+
+});
+
+});
+
+/*=====================================================
+UPDATE CART
+=====================================================*/
+
+function updateCart(){
+
+cartItems.innerHTML="";
+
+let totalPrice=0;
+
+cart.forEach((item,index)=>{
+
+const div=document.createElement("div");
+
+div.className="cart-item";
+
+div.innerHTML=`
+
+<div>
+
+<strong>${item.name}</strong><br>
+
+${item.size ? item.size : ""}
+
+</div>
+
+<div>
+
+P${item.price}
+
+</div>
+
+`;
+
+cartItems.appendChild(div);
+
+totalPrice+=item.price;
+
+});
+
+cartCount.innerText=cart.length;
+
+total.innerText="TOTAL : P"+totalPrice;
+
+}/*=====================================================
 WHATSAPP CHECKOUT
-====================== */
+=====================================================*/
 
-document
-.getElementById("checkout")
-.addEventListener("click",()=>{
+document.getElementById("checkout").addEventListener("click",()=>{
 
-  if(cart.length===0){
+if(cart.length===0){
 
-    alert(
-      "Your cart is empty."
-    );
+alert("Your cart is empty.");
 
-    return;
+return;
 
-  }
+}
 
-  let message =
-  "Hello PLATINUMPESOS,%0A%0A";
+let totalPrice=0;
 
-  message +=
-  "I would like to order:%0A%0A";
+let message="Hello PLATINUMPESOS,%0A%0A";
 
-  let totalPrice = 0;
+message+="I would like to order:%0A%0A";
 
-  cart.forEach(item=>{
+cart.forEach(item=>{
 
-    message +=
-    "• "
-    + item.name;
+message+="• "+item.name;
 
-    if(item.size){
+if(item.size){
 
-      message +=
-      " ("
-      + item.size
-      + ")";
+message+=" ("+item.size+")";
 
-    }
+}
 
-    message +=
-    " - P"
-    + item.price
-    + "%0A";
+message+=" - P"+item.price+"%0A";
 
-    totalPrice +=
-    item.price;
-
-  });
-
-  message +=
-  "%0A";
-
-  message +=
-  "TOTAL : P"
-  + totalPrice
-  + "%0A%0A";
-
-  message +=
-  "Name : %0A";
-
-  message +=
-  "Location : %0A";
-
-  message +=
-  "Phone Number : ";
-
-  window.open(
-
-    "https://wa.me/26774303330?text="
-    + message,
-
-    "_blank"
-
-  );
+totalPrice+=item.price;
 
 });
 
+message+="%0A";
 
-/* ======================
-ESC KEY CLOSE CART
-====================== */
+message+="TOTAL : P"+totalPrice+"%0A%0A";
 
-document.addEventListener(
-"keydown",
-e=>{
+message+="Name : %0A";
 
-  if(e.key==="Escape"){
+message+="Phone Number : %0A";
 
-    closeCart();
+message+="Location : %0A%0A";
 
-  }
+message+="Thank you.";
+
+window.open(
+
+"https://wa.me/26774303330?text="+message,
+
+"_blank"
+
+);
+
+});
+
+/*=====================================================
+ESC CLOSE CART
+=====================================================*/
+
+document.addEventListener("keydown",e=>{
+
+if(e.key==="Escape"){
+
+closeCart();
+
+}
 
 });
 
+/*=====================================================
+CLICK OUTSIDE CART
+=====================================================*/
 
-/* ======================
-CLICK OUTSIDE CLOSE
-====================== */
+document.addEventListener("click",e=>{
 
-document.addEventListener(
-"click",
-e=>{
+if(
 
-  if(
+cartContainer.classList.contains("active")
 
-    cartContainer.classList.contains("active")
+&&
 
-    &&
+!cartContainer.contains(e.target)
 
-    !cartContainer.contains(e.target)
+&&
 
-    &&
+!e.target.closest(".cart-icon")
 
-    !e.target.closest(".cart-icon")
+){
 
-  ){
+closeCart();
 
-    closeCart();
-
-  }
+}
 
 });
-/* ======================
-LUXURY VIDEO GATE
-====================== */
 
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
+/*=====================================================
+SMOOTH PRODUCT REVEAL
+=====================================================*/
 
-  const gate =
-  document.getElementById(
-    "video-gate"
-  );
+const observer=new IntersectionObserver(entries=>{
 
-  const site =
-  document.getElementById(
-    "site-content"
-  );
+entries.forEach(entry=>{
 
-  const enter =
-  document.getElementById(
-    "enter-store"
-  );
+if(entry.isIntersecting){
 
-  if(!gate || !site || !enter){
-    return;
-  }
+entry.target.style.opacity="1";
 
-  site.style.display = "none";
+entry.target.style.transform="translateY(0)";
 
-  enter.addEventListener(
-  "click",
-  ()=>{
-
-    gate.style.transition =
-    "opacity .8s ease";
-
-    gate.style.opacity = "0";
-
-    setTimeout(()=>{
-
-      gate.style.display =
-      "none";
-
-      site.style.display =
-      "block";
-
-    },800);
-
-  });
+}
 
 });
+
+},{
+
+threshold:.15
+
+});
+
+document.querySelectorAll(".product").forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(45px)";
+
+card.style.transition=".8s ease";
+
+observer.observe(card);
+
+});
+
+/*=====================================================
+BUTTON RIPPLE
+=====================================================*/
+
+document.querySelectorAll("button").forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const circle=document.createElement("span");
+
+const diameter=Math.max(
+
+this.clientWidth,
+
+this.clientHeight
+
+);
+
+circle.style.width=diameter+"px";
+
+circle.style.height=diameter+"px";
+
+circle.style.position="absolute";
+
+circle.style.borderRadius="50%";
+
+circle.style.left=(
+
+e.clientX-
+
+this.getBoundingClientRect().left-
+
+diameter/2
+
+)+"px";
+
+circle.style.top=(
+
+e.clientY-
+
+this.getBoundingClientRect().top-
+
+diameter/2
+
+)+"px";
+
+circle.style.background="rgba(255,255,255,.25)";
+
+circle.style.transform="scale(0)";
+
+circle.style.transition=".6s";
+
+circle.style.pointerEvents="none";
+
+this.style.position="relative";
+
+this.style.overflow="hidden";
+
+this.appendChild(circle);
+
+requestAnimationFrame(()=>{
+
+circle.style.transform="scale(4)";
+
+circle.style.opacity="0";
+
+});
+
+setTimeout(()=>{
+
+circle.remove();
+
+},650);
+
+});
+
+});
+
+/*=====================================================
+AUTO PLAY VIDEO (ANDROID & iPHONE)
+=====================================================*/
+
+window.addEventListener("load",()=>{
+
+const video=document.getElementById("intro-video");
+
+if(video){
+
+video.muted=true;
+
+video.playsInline=true;
+
+const playPromise=video.play();
+
+if(playPromise!==undefined){
+
+playPromise.catch(()=>{});
+
+}
+
+}
+
+});
+
+/*=====================================================
+PREVENT IMAGE DRAG
+=====================================================*/
+
+document.querySelectorAll("img").forEach(img=>{
+
+img.setAttribute("draggable","false");
+
+});
+
+/*=====================================================
+PRELOAD WEBSITE
+=====================================================*/
+
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="1";
+
+});
+
+/*=====================================================
+END OF SCRIPT
+=====================================================*/
