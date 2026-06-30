@@ -6,17 +6,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PLATINUMPESOS | NEW KIDS ON THE BLOCK</title>
+<title>PLATINUMPESOS® | NEW KIDS ON THE BLOCK</title>
 
-<meta name="description" content="PLATINUMPESOS official clothing website. Shop premium streetwear from Botswana.">
+<meta name="description" content="Official PLATINUMPESOS® Website. Premium Streetwear from Botswana.">
 
-<meta name="keywords" content="PLATINUMPESOS, Botswana, Streetwear, Hoodie, Tee, Beanie">
+<meta name="keywords" content="PLATINUMPESOS, Botswana, Streetwear, Fashion, Luxury, Hoodie, Tee">
 
 <meta name="author" content="PLATINUMPESOS">
 
-<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000000">
 
-<meta property="og:title" content="PLATINUMPESOS">
+<meta property="og:title" content="PLATINUMPESOS®">
 
 <meta property="og:description" content="NEW KIDS ON THE BLOCK">
 
@@ -28,7 +28,11 @@
 
 <link rel="icon" href="https://i.ibb.co/jPx1Y13V/ko.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
@@ -36,34 +40,51 @@
 
 <body>
 
-<!-- LUXURY VIDEO INTRO -->
+<!-- ==========================
+VIDEO GATE
+========================== -->
 
 <div id="video-gate">
 
-  <video id="intro-video" autoplay muted loop playsinline>
-    <source src="intro.mp4" type="video/mp4">
-  </video>
+<video
+id="intro-video"
+autoplay
+muted
+loop
+playsinline
+webkit-playsinline
+preload="auto">
 
-  <div class="video-overlay">
+<source src="intro.mp4" type="video/mp4">
 
-    <img
-      src="https://i.ibb.co/jPx1Y13V/ko.png"
-      class="gate-logo"
-      alt="PLATINUMPESOS">
+</video>
 
-    <h1>PLATINUMPESOS</h1>
+<div class="video-dark"></div>
 
-    <p>NEW KIDS ON THE BLOCK</p>
+<div class="video-overlay">
 
-    <button id="enter-store">
-      SHOP NOW
-    </button>
+<img
+src="https://i.ibb.co/jPx1Y13V/ko.png"
+class="gate-logo"
+alt="PLATINUMPESOS">
 
-  </div>
+<h1>PLATINUMPESOS</h1>
+
+<p>NEW KIDS ON THE BLOCK</p>
+
+<button id="enter-store">
+
+SHOP NOW
+
+</button>
 
 </div>
 
-<!-- WEBSITE CONTENT -->
+</div>
+
+<!-- ==========================
+ENTIRE WEBSITE
+========================== -->
 
 <div id="site-content">
 
@@ -71,13 +92,22 @@
 
 <div id="intro">
 
-  <img
-    src="https://i.ibb.co/jPx1Y13V/ko.png"
-    class="intro-logo">
+<img
+src="https://i.ibb.co/jPx1Y13V/ko.png"
+class="intro-logo"
+alt="Logo">
 
-  <h1>PLATINUMPESOS</h1>
+<h1>
 
-  <p>NEW KIDS ON THE BLOCK</p>
+PLATINUMPESOS
+
+</h1>
+
+<p>
+
+NEW KIDS ON THE BLOCK
+
+</p>
 
 </div>
 
@@ -85,11 +115,11 @@
 
 <div class="top-bar">
 
-  <div class="top-bar-inner">
+<div class="top-bar-inner">
 
-    PLATINUMPESOS® • NEW KIDS ON THE BLOCK • BOTSWANA
+PLATINUMPESOS® • BOTSWANA • NEW KIDS ON THE BLOCK • WORLDWIDE STREETWEAR
 
-  </div>
+</div>
 
 </div>
 
@@ -97,19 +127,15 @@
 
 <div class="delivery-bar">
 
-  <div class="delivery-track">
+<div class="delivery-track">
 
-    <span>
+<span>
 
-      NATIONWIDE DELIVERY AVAILABLE • ORDER VIA WHATSAPP • NEW KIDS ON THE BLOCK • PLATINUMPESOS® •
+NATIONWIDE DELIVERY AVAILABLE • ORDER VIA WHATSAPP • LIMITED STOCK • PREMIUM STREETWEAR • PLATINUMPESOS® • NATIONWIDE DELIVERY AVAILABLE • ORDER VIA WHATSAPP • LIMITED STOCK • PREMIUM STREETWEAR •
 
-      NATIONWIDE DELIVERY AVAILABLE • ORDER VIA WHATSAPP • NEW KIDS ON THE BLOCK • PLATINUMPESOS® •
+</span>
 
-      NATIONWIDE DELIVERY AVAILABLE • ORDER VIA WHATSAPP • NEW KIDS ON THE BLOCK • PLATINUMPESOS® •
-
-    </span>
-
-  </div>
+</div>
 
 </div>
 
@@ -117,29 +143,43 @@
 
 <div class="cart-icon" onclick="openCart()">
 
-  🛒 <span id="cart-count">0</span>
+🛒
+
+<span id="cart-count">
+
+0
+
+</span>
 
 </div>
 
 <div class="cart" id="cart">
 
-  <h2>YOUR CART</h2>
+<h2>
 
-  <div id="cart-items"></div>
+YOUR CART
 
-  <h3 id="total">TOTAL : P0</h3>
+</h2>
 
-  <button id="checkout">
+<div id="cart-items"></div>
 
-    PROCEED YOUR PURCHASE ON WHATSAPP
+<h3 id="total">
 
-  </button>
+TOTAL : P0
 
-  <button onclick="closeCart()">
+</h3>
 
-    CLOSE
+<button id="checkout">
 
-  </button>
+PROCEED TO WHATSAPP
+
+</button>
+
+<button onclick="closeCart()">
+
+CLOSE
+
+</button>
 
 </div>
 
@@ -147,23 +187,36 @@
 
 <section class="hero">
 
-  <img
-    src="https://i.ibb.co/jPx1Y13V/ko.png"
-    class="logo">
+<div class="hero-content">
 
-  <h1>PLATINUMPESOS</h1>
+<img
+src="https://i.ibb.co/jPx1Y13V/ko.png"
+class="logo"
+alt="PLATINUMPESOS">
 
-  <p>NEW KIDS ON THE BLOCK</p>
+<h1>
 
-  <a href="#shop">
+PLATINUMPESOS
 
-    <button>
+</h1>
 
-      SHOP NOW
+<p>
 
-    </button>
+NEW KIDS ON THE BLOCK
 
-  </a>
+</p>
+
+<a href="#shop">
+
+<button class="hero-btn">
+
+SHOP COLLECTION
+
+</button>
+
+</a>
+
+</div>
 
 </section>
 
@@ -171,225 +224,343 @@
 
 <section id="shop">
 
-  <h2>AVAILABLE NOW</h2>
+<h2>
 
-  <div class="products"><!-- LADIES CROP TOP -->
+AVAILABLE NOW
 
-<div class="product">
+</h2>
 
-  <img src="https://i.ibb.co/XZySm3wQ/2d25b754-f2f4-488b-8543-400015c28e8a.png">
-
-  <h3>LADIES CROP TOP</h3>
-
-  <p>P169</p>
-
-  <div class="sizes">
-
-    <button>S</button>
-    <button>M</button>
-    <button>L</button>
-    <button>XL</button>
-
-  </div>
-
-  <button
-    class="add-cart"
-    data-name="Ladies Crop Top"
-    data-price="169">
-
-    ADD TO CART
-
-  </button>
-
-</div>
-
-<!-- CM TEE -->
+<div class="products"><!-- ==========================
+LADIES CROP TOP
+========================== -->
 
 <div class="product">
 
-  <img src="https://i.ibb.co/V0bwMJkp/c31efc15-78a5-4d8d-9b0f-de5db06ded85.png">
+<img
+src="https://i.ibb.co/XZySm3wQ/2d25b754-f2f4-488b-8543-400015c28e8a.png"
+alt="Ladies Crop Top">
 
-  <h3>CM TEE</h3>
+<div class="product-info">
 
-  <p>P199</p>
+<h3>
 
-  <div class="sizes">
+LADIES CROP TOP
 
-    <button>S</button>
-    <button>M</button>
-    <button>L</button>
-    <button>XL</button>
+</h3>
 
-  </div>
+<p class="price">
 
-  <button
-    class="add-cart"
-    data-name="CM Tee"
-    data-price="199">
+P169
 
-    ADD TO CART
+</p>
 
-  </button>
+<div class="sizes">
+
+<button>S</button>
+
+<button>M</button>
+
+<button>L</button>
+
+<button>XL</button>
 
 </div>
 
-<!-- PARADOXES HOODIE -->
+<button
+class="add-cart"
+data-name="Ladies Crop Top"
+data-price="169">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================
+CM TEE
+========================== -->
 
 <div class="product">
 
-  <img src="https://i.ibb.co/mVR6VqCh/e434d09f-0de1-4fbf-aa8f-ddb28aa18a12.png">
+<img
+src="https://i.ibb.co/V0bwMJkp/c31efc15-78a5-4d8d-9b0f-de5db06ded85.png"
+alt="CM Tee">
 
-  <h3>PARADOXES HOODIE</h3>
+<div class="product-info">
 
-  <p>P350</p>
+<h3>
 
-  <div class="sizes">
+CM TEE
 
-    <button>S</button>
-    <button>M</button>
-    <button>L</button>
-    <button>XL</button>
+</h3>
 
-  </div>
+<p class="price">
 
-  <button
-    class="add-cart"
-    data-name="Paradoxes Hoodie"
-    data-price="350">
+P199
 
-    ADD TO CART
+</p>
 
-  </button>
+<div class="sizes">
+
+<button>S</button>
+
+<button>M</button>
+
+<button>L</button>
+
+<button>XL</button>
 
 </div>
 
-<!-- PARADOXES BEANIE -->
+<button
+class="add-cart"
+data-name="CM Tee"
+data-price="199">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================
+PARADOXES HOODIE
+========================== -->
 
 <div class="product">
 
-  <img src="https://i.ibb.co/whb4J6gM/new-beanie.png">
+<img
+src="https://i.ibb.co/mVR6VqCh/e434d09f-0de1-4fbf-aa8f-ddb28aa18a12.png"
+alt="Paradoxes Hoodie">
 
-  <h3>PARADOXES BEANIE</h3>
+<div class="product-info">
 
-  <p>P180</p>
+<h3>
 
-  <button
-    class="add-cart"
-    data-name="Paradoxes Beanie"
-    data-price="180">
+PARADOXES HOODIE
 
-    ADD TO CART
+</h3>
 
-  </button>
+<p class="price">
+
+P350
+
+</p>
+
+<div class="sizes">
+
+<button>S</button>
+
+<button>M</button>
+
+<button>L</button>
+
+<button>XL</button>
 
 </div>
 
-<!-- WHITE SOCK -->
+<button
+class="add-cart"
+data-name="Paradoxes Hoodie"
+data-price="350">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================
+PARADOXES BEANIE
+========================== -->
 
 <div class="product">
 
-  <img
-    src="https://i.ibb.co/2Y8zRztg/f4fbf9bf-6dea-4a88-b81a-0f3911af68d3.png"
-    alt="White Sock">
+<img
+src="https://i.ibb.co/whb4J6gM/new-beanie.png"
+alt="Paradoxes Beanie">
 
-  <h3>WHITE SOCK</h3>
+<div class="product-info">
 
-  <p>P80</p>
+<h3>
 
-  <div class="sizes">
+PARADOXES BEANIE
 
-    <button class="active">
+</h3>
 
-      ONE SIZE
+<p class="price">
 
-    </button>
+P180
 
-  </div>
+</p>
 
-  <button
-    class="add-cart"
-    data-name="White Sock"
-    data-price="80">
+<button
+class="add-cart"
+data-name="Paradoxes Beanie"
+data-price="180">
 
-    ADD TO CART
+ADD TO CART
 
-  </button>
+</button>
 
 </div>
 
-<!-- LD TEE -->
+</div>
+
+<!-- ==========================
+WHITE SOCK
+========================== -->
+
+<div class="product">
+
+<img
+src="https://i.ibb.co/2Y8zRztg/f4fbf9bf-6dea-4a88-b81a-0f3911af68d3.png"
+alt="White Sock">
+
+<div class="product-info">
+
+<h3>
+
+WHITE SOCK
+
+</h3>
+
+<p class="price">
+
+P80
+
+</p>
+
+<div class="sizes">
+
+<button class="active">
+
+ONE SIZE
+
+</button>
+
+</div>
+
+<button
+class="add-cart"
+data-name="White Sock"
+data-price="80">
+
+ADD TO CART
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================
+SOLD OUT
+========================== -->
 
 <div class="product sold">
 
-  <div class="sold-box">
+<div class="sold-box">
 
-    SOLD OUT
+SOLD OUT
 
-  </div>
+</div>
 
-  <h3>LD TEE</h3>
+<h3>
+
+LD TEE
+
+</h3>
 
 </div>
 
 </div>
 
-</section><!-- NOTICE -->
+</section><!-- ==========================
+IMPORTANT NOTICE
+========================== -->
 
 <section class="notice">
 
-  <h2>IMPORTANT NOTICE</h2>
+<div class="notice-container">
 
-  <p>
-    Available items are limited and stock may change without notice.
-  </p>
+<h2>
 
-  <p>
-    Orders are processed directly through WhatsApp after checkout.
-  </p>
+IMPORTANT NOTICE
 
-  <p>
-    Nationwide delivery is available across Botswana.
-    Delivery charges depend on your location and will be confirmed before payment.
-  </p>
+</h2>
 
-  <p>
-    For all enquiries please contact us below.
-  </p>
+<p>
 
-  <h3>
+Available items are limited.
+Stock may change without notice.
 
-    platinumpesos@gmail.com
+</p>
 
-  </h3>
+<p>
+
+Orders are completed directly through WhatsApp after checkout.
+
+</p>
+
+<p>
+
+Nationwide delivery is available across Botswana.
+Delivery fees depend on your location and will be confirmed before payment.
+
+</p>
+
+<p>
+
+Please ensure your phone number and delivery location are correct before submitting your order.
+
+</p>
+
+<h3>
+
+platinumpesos@gmail.com
+
+</h3>
+
+</div>
 
 </section>
 
-<!-- FOOTER -->
+<!-- ==========================
+FOOTER
+========================== -->
 
 <footer>
 
-  <img
-    src="https://i.ibb.co/jPx1Y13V/ko.png"
-    class="footer-logo"
-    alt="PLATINUMPESOS Logo">
+<img
+src="https://i.ibb.co/jPx1Y13V/ko.png"
+class="footer-logo"
+alt="PLATINUMPESOS">
 
-  <h2>
+<h2>
 
-    PLATINUMPESOS
+PLATINUMPESOS®
 
-  </h2>
+</h2>
 
-  <p>
+<p>
 
-    NEW KIDS ON THE BLOCK
+NEW KIDS ON THE BLOCK
 
-  </p>
+</p>
 
-  <small>
+<small>
 
-    © 2026 PLATINUMPESOS. ALL RIGHTS RESERVED.
+© 2026 PLATINUMPESOS®. ALL RIGHTS RESERVED.
 
-  </small>
+</small>
 
 </footer>
 
