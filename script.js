@@ -1,8 +1,12 @@
-/*=====================================================
+/*======================================================
 PLATINUMPESOS®
-PREMIUM SCRIPT
-PART 1
-=====================================================*/
+PREMIUM STREETWEAR
+SCRIPT VERSION 3.0
+======================================================*/
+
+/*======================================================
+GLOBAL
+======================================================*/
 
 let cart = [];
 
@@ -11,20 +15,20 @@ const cartItems = document.getElementById("cart-items");
 const cartCount = document.getElementById("cart-count");
 const total = document.getElementById("total");
 
-/*=====================================================
+/*======================================================
 VIDEO GATE
-=====================================================*/
+======================================================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-const gate = document.getElementById("video-gate");
-const site = document.getElementById("site-content");
-const enter = document.getElementById("enter-store");
-const video = document.getElementById("intro-video");
+const gate=document.getElementById("video-gate");
+const site=document.getElementById("site-content");
+const enter=document.getElementById("enter-store");
+const video=document.getElementById("intro-video");
 
 if(video){
 
-video.muted = true;
+video.muted=true;
 
 video.setAttribute("playsinline","");
 
@@ -60,9 +64,9 @@ behavior:"smooth"
 
 });
 
-/*=====================================================
+/*======================================================
 OPEN CART
-=====================================================*/
+======================================================*/
 
 function openCart(){
 
@@ -70,9 +74,9 @@ cartContainer.classList.add("active");
 
 }
 
-/*=====================================================
+/*======================================================
 CLOSE CART
-=====================================================*/
+======================================================*/
 
 function closeCart(){
 
@@ -80,15 +84,15 @@ cartContainer.classList.remove("active");
 
 }
 
-/*=====================================================
+/*======================================================
 SIZE SELECTOR
-=====================================================*/
+======================================================*/
 
 document.querySelectorAll(".sizes button").forEach(button=>{
 
 button.addEventListener("click",()=>{
 
-const parent = button.parentElement;
+const parent=button.parentElement;
 
 parent.querySelectorAll("button").forEach(btn=>{
 
@@ -100,29 +104,27 @@ button.classList.add("active");
 
 });
 
-});
-
-/*=====================================================
+});/*======================================================
 ADD TO CART
-=====================================================*/
+======================================================*/
 
 document.querySelectorAll(".add-cart").forEach(button=>{
 
 button.addEventListener("click",()=>{
 
-const product = button.closest(".product");
+const product=button.closest(".product");
 
-const name = button.dataset.name;
+const name=button.dataset.name;
 
-const price = Number(button.dataset.price);
+const price=Number(button.dataset.price);
 
-let size = "";
+let size="";
 
-const sizes = product.querySelector(".sizes");
+const sizes=product.querySelector(".sizes");
 
 if(sizes){
 
-const active = sizes.querySelector(".active");
+const active=sizes.querySelector(".active");
 
 if(!active){
 
@@ -132,7 +134,7 @@ return;
 
 }
 
-size = active.innerText;
+size=active.innerText;
 
 }
 
@@ -156,9 +158,9 @@ setTimeout(()=>{
 
 button.innerText="ADD TO CART";
 
-button.style.background="";
+button.style.background="#fff";
 
-button.style.color="";
+button.style.color="#000";
 
 },1200);
 
@@ -168,9 +170,9 @@ updateCart();
 
 });
 
-/*=====================================================
+/*======================================================
 UPDATE CART
-=====================================================*/
+======================================================*/
 
 function updateCart(){
 
@@ -190,7 +192,7 @@ div.innerHTML=`
 
 <strong>${item.name}</strong><br>
 
-${item.size ? item.size : ""}
+${item.size ? item.size : "ONE SIZE"}
 
 </div>
 
@@ -212,9 +214,33 @@ cartCount.innerText=cart.length;
 
 total.innerText="TOTAL : P"+totalPrice;
 
-}/*=====================================================
+}
+
+/*======================================================
+REMOVE CART ITEMS
+======================================================*/
+
+function removeCartItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+/*======================================================
+CLEAR CART
+======================================================*/
+
+function clearCart(){
+
+cart=[];
+
+updateCart();
+
+}/*======================================================
 WHATSAPP CHECKOUT
-=====================================================*/
+======================================================*/
 
 document.getElementById("checkout").addEventListener("click",()=>{
 
@@ -270,9 +296,9 @@ window.open(
 
 });
 
-/*=====================================================
+/*======================================================
 ESC CLOSE CART
-=====================================================*/
+======================================================*/
 
 document.addEventListener("keydown",e=>{
 
@@ -284,9 +310,9 @@ closeCart();
 
 });
 
-/*=====================================================
+/*======================================================
 CLICK OUTSIDE CART
-=====================================================*/
+======================================================*/
 
 document.addEventListener("click",e=>{
 
@@ -310,9 +336,9 @@ closeCart();
 
 });
 
-/*=====================================================
-SMOOTH PRODUCT REVEAL
-=====================================================*/
+/*======================================================
+PRODUCT REVEAL
+======================================================*/
 
 const observer=new IntersectionObserver(entries=>{
 
@@ -346,9 +372,9 @@ observer.observe(card);
 
 });
 
-/*=====================================================
+/*======================================================
 BUTTON RIPPLE
-=====================================================*/
+======================================================*/
 
 document.querySelectorAll("button").forEach(button=>{
 
@@ -424,9 +450,9 @@ circle.remove();
 
 });
 
-/*=====================================================
-AUTO PLAY VIDEO (ANDROID & iPHONE)
-=====================================================*/
+/*======================================================
+AUTO PLAY VIDEO
+======================================================*/
 
 window.addEventListener("load",()=>{
 
@@ -438,21 +464,15 @@ video.muted=true;
 
 video.playsInline=true;
 
-const playPromise=video.play();
-
-if(playPromise!==undefined){
-
-playPromise.catch(()=>{});
-
-}
+video.play().catch(()=>{});
 
 }
 
 });
 
-/*=====================================================
+/*======================================================
 PREVENT IMAGE DRAG
-=====================================================*/
+======================================================*/
 
 document.querySelectorAll("img").forEach(img=>{
 
@@ -460,16 +480,274 @@ img.setAttribute("draggable","false");
 
 });
 
-/*=====================================================
-PRELOAD WEBSITE
-=====================================================*/
+/*======================================================
+PAGE LOADED
+======================================================*/
 
 window.addEventListener("load",()=>{
 
 document.body.style.opacity="1";
 
+});/*======================================================
+CORTEIZ IMAGE SWITCH
+PART 2A
+======================================================*/
+
+document.querySelectorAll(".product").forEach(product=>{
+
+const front=product.querySelector(".front-image");
+
+const back=product.querySelector(".back-image");
+
+if(!front||!back)return;
+
+/*======================================================
+DESKTOP
+======================================================*/
+
+product.addEventListener("mouseenter",()=>{
+
+product.classList.add("show-back");
+
 });
 
-/*=====================================================
+product.addEventListener("mouseleave",()=>{
+
+product.classList.remove("show-back");
+
+});
+
+/*======================================================
+MOBILE TAP
+======================================================*/
+
+let tapped=false;
+
+product.addEventListener("click",e=>{
+
+if(
+
+e.target.closest(".add-cart")||
+
+e.target.closest(".sizes button")
+
+){
+
+return;
+
+}
+
+if(window.innerWidth<=768){
+
+e.preventDefault();
+
+tapped=!tapped;
+
+if(tapped){
+
+product.classList.add("show-back");
+
+}else{
+
+product.classList.remove("show-back");
+
+}
+
+}
+
+});
+
+});
+
+/*======================================================
+RESET IMAGES AFTER RESIZE
+======================================================*/
+
+window.addEventListener("resize",()=>{
+
+if(window.innerWidth>768){
+
+document.querySelectorAll(".product").forEach(product=>{
+
+product.classList.remove("show-back");
+
+});
+
+}
+
+});
+
+/*======================================================
+PRELOAD PRODUCT IMAGES
+======================================================*/
+
+document.querySelectorAll(".front-image,.back-image").forEach(img=>{
+
+const preload=new Image();
+
+preload.src=img.src;
+
+});
+
+/*======================================================
+SMOOTH IMAGE LOADING
+======================================================*/
+
+document.querySelectorAll(".product-image img").forEach(img=>{
+
+img.onload=()=>{
+
+img.style.opacity=img.classList.contains("front-image")?1:0;
+
+};
+
+});/*======================================================
+PART 2B
+PREMIUM PRODUCT INTERACTIONS
+======================================================*/
+
+/*======================================================
+IMAGE ZOOM EFFECT
+======================================================*/
+
+document.querySelectorAll(".product").forEach(product=>{
+
+const images=product.querySelectorAll(".product-image img");
+
+product.addEventListener("mouseenter",()=>{
+
+images.forEach(img=>{
+
+img.style.transform="scale(1.03)";
+
+});
+
+});
+
+product.addEventListener("mouseleave",()=>{
+
+images.forEach(img=>{
+
+img.style.transform="scale(1)";
+
+});
+
+});
+
+});
+
+/*======================================================
+TOUCH OPTIMIZATION
+======================================================*/
+
+document.querySelectorAll(".product").forEach(product=>{
+
+product.addEventListener("touchstart",()=>{
+
+product.style.transition=".25s ease";
+
+},{passive:true});
+
+});
+
+/*======================================================
+PRELOAD IMAGES
+======================================================*/
+
+window.addEventListener("load",()=>{
+
+document.querySelectorAll(".product-image img").forEach(img=>{
+
+const preload=new Image();
+
+preload.src=img.src;
+
+});
+
+});
+
+/*======================================================
+SMOOTH FADE WHEN IMAGES LOAD
+======================================================*/
+
+document.querySelectorAll(".product-image img").forEach(img=>{
+
+if(img.complete){
+
+img.style.opacity=img.classList.contains("front-image")?"1":"0";
+
+}else{
+
+img.addEventListener("load",()=>{
+
+img.style.opacity=img.classList.contains("front-image")?"1":"0";
+
+});
+
+}
+
+});
+
+/*======================================================
+PRODUCT HOVER LIFT
+======================================================*/
+
+document.querySelectorAll(".product").forEach(product=>{
+
+product.addEventListener("mouseenter",()=>{
+
+product.style.transform="translateY(-8px)";
+
+});
+
+product.addEventListener("mouseleave",()=>{
+
+product.style.transform="translateY(0)";
+
+});
+
+});
+
+/*======================================================
+PREVENT DOUBLE TAP ZOOM
+======================================================*/
+
+let lastTouchEnd=0;
+
+document.addEventListener("touchend",function(e){
+
+const now=(new Date()).getTime();
+
+if(now-lastTouchEnd<=300){
+
+e.preventDefault();
+
+}
+
+lastTouchEnd=now;
+
+},{passive:false});
+
+/*======================================================
+RESET PRODUCT STATES
+======================================================*/
+
+window.addEventListener("resize",()=>{
+
+if(window.innerWidth>768){
+
+document.querySelectorAll(".product").forEach(product=>{
+
+product.classList.remove("show-back");
+
+});
+
+}
+
+});
+
+/*======================================================
 END OF SCRIPT
-=====================================================*/
+======================================================*/
+
+console.log("PLATINUMPESOS® Premium Store Loaded Successfully");
