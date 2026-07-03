@@ -1,7 +1,7 @@
 /*======================================================
 PLATINUMPESOS®
 PREMIUM STREETWEAR
-LUXURY VERSION 2.0
+VERSION 3.0
 ======================================================*/
 
 *{
@@ -13,6 +13,7 @@ scroll-behavior:smooth;
 
 html{
 scroll-behavior:smooth;
+background:#050505;
 }
 
 body{
@@ -28,6 +29,48 @@ overflow-x:hidden;
 -webkit-font-smoothing:antialiased;
 
 -moz-osx-font-smoothing:grayscale;
+
+}
+
+/*======================================================
+GLOBAL
+======================================================*/
+
+img{
+
+display:block;
+
+width:100%;
+
+user-select:none;
+
+-webkit-user-drag:none;
+
+}
+
+button{
+
+font-family:'Oswald',sans-serif;
+
+transition:.35s ease;
+
+cursor:pointer;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+::selection{
+
+background:#fff;
+
+color:#000;
 
 }
 
@@ -49,8 +92,6 @@ height:100vh;
 
 background:#000;
 
-z-index:999999;
-
 display:flex;
 
 justify-content:center;
@@ -58,6 +99,8 @@ justify-content:center;
 align-items:center;
 
 overflow:hidden;
+
+z-index:999999;
 
 transition:1s ease;
 
@@ -95,6 +138,10 @@ transform:translate(-50%,-50%);
 
 position:absolute;
 
+top:0;
+
+left:0;
+
 width:100%;
 
 height:100%;
@@ -103,15 +150,15 @@ background:linear-gradient(
 
 180deg,
 
-rgba(0,0,0,.55),
+rgba(0,0,0,.45),
 
-rgba(0,0,0,.65),
+rgba(0,0,0,.60),
 
-rgba(0,0,0,.82)
+rgba(0,0,0,.88)
 
 );
 
-backdrop-filter:blur(1px);
+backdrop-filter:blur(2px);
 
 }
 
@@ -137,11 +184,13 @@ padding:25px;
 
 .gate-logo{
 
-width:160px;
+width:170px;
 
-margin-bottom:28px;
+margin-bottom:30px;
 
-animation:logoFloat 5s ease infinite;
+filter:drop-shadow(0 20px 45px rgba(255,255,255,.12));
+
+animation:logoFloat 5s ease-in-out infinite;
 
 }
 
@@ -149,9 +198,9 @@ animation:logoFloat 5s ease infinite;
 
 font-family:'Anton',sans-serif;
 
-font-size:85px;
+font-size:88px;
 
-letter-spacing:5px;
+letter-spacing:6px;
 
 line-height:1;
 
@@ -161,13 +210,13 @@ line-height:1;
 
 margin-top:18px;
 
-letter-spacing:8px;
-
 font-size:15px;
 
-color:#d0d0d0;
+letter-spacing:8px;
 
 text-transform:uppercase;
+
+color:#cfcfcf;
 
 }
 
@@ -177,23 +226,19 @@ margin-top:45px;
 
 padding:18px 60px;
 
-border:1px solid rgba(255,255,255,.35);
-
 background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.25);
+
+color:#fff;
 
 backdrop-filter:blur(12px);
 
-color:#fff;
+font-size:15px;
 
 font-weight:700;
 
 letter-spacing:4px;
-
-cursor:pointer;
-
-transition:.4s;
-
-font-size:15px;
 
 }
 
@@ -205,7 +250,7 @@ color:#000;
 
 transform:translateY(-3px);
 
-box-shadow:0 0 45px rgba(255,255,255,.15);
+box-shadow:0 0 35px rgba(255,255,255,.20);
 
 }
 
@@ -213,7 +258,7 @@ box-shadow:0 0 45px rgba(255,255,255,.15);
 
 0%{
 
-transform:translateY(0px);
+transform:translateY(0);
 
 }
 
@@ -225,14 +270,14 @@ transform:translateY(-8px);
 
 100%{
 
-transform:translateY(0px);
+transform:translateY(0);
 
 }
 
 }
 
 /*======================================================
-SITE
+SITE CONTENT
 ======================================================*/
 
 #site-content{
@@ -262,9 +307,6 @@ opacity:1;
 transform:translateY(0);
 
 }
-
-}
-
 /*======================================================
 INTRO
 ======================================================*/
@@ -303,25 +345,31 @@ width:180px;
 
 margin-bottom:25px;
 
+filter:drop-shadow(0 15px 35px rgba(255,255,255,.08));
+
 }
 
 #intro h1{
 
-font-family:'Anton';
+font-family:'Anton',sans-serif;
 
 font-size:72px;
 
 letter-spacing:5px;
 
+line-height:1;
+
 }
 
 #intro p{
 
-margin-top:10px;
+margin-top:12px;
+
+font-size:15px;
 
 letter-spacing:7px;
 
-font-size:15px;
+text-transform:uppercase;
 
 color:#9b9b9b;
 
@@ -375,17 +423,21 @@ border-bottom:1px solid rgba(255,255,255,.08);
 
 z-index:9999;
 
+backdrop-filter:blur(12px);
+
 }
 
 .top-bar-inner{
 
 font-size:12px;
 
-letter-spacing:3px;
-
 font-weight:600;
 
+letter-spacing:3px;
+
 white-space:nowrap;
+
+color:#fff;
 
 }
 
@@ -431,15 +483,15 @@ animation:marquee 22s linear infinite;
 
 .delivery-track span{
 
-font-family:'Anton';
+font-family:'Anton',sans-serif;
+
+font-size:16px;
 
 letter-spacing:2px;
 
 padding-right:80px;
 
-font-size:16px;
-
-color:#d5d5d5;
+color:#d6d6d6;
 
 }
 
@@ -457,7 +509,9 @@ transform:translateX(-100%);
 
 }
 
-}/*======================================================
+}
+
+/*======================================================
 CART
 ======================================================*/
 
@@ -473,17 +527,17 @@ width:58px;
 
 height:58px;
 
-border-radius:50%;
-
-background:#111;
-
-border:1px solid rgba(255,255,255,.08);
-
 display:flex;
 
 justify-content:center;
 
 align-items:center;
+
+background:#111;
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:50%;
 
 font-size:24px;
 
@@ -491,17 +545,17 @@ cursor:pointer;
 
 z-index:9997;
 
-transition:.35s;
-
 box-shadow:0 15px 35px rgba(0,0,0,.45);
+
+transition:.35s ease;
 
 }
 
 .cart-icon:hover{
 
-transform:translateY(-4px) scale(1.05);
-
 background:#181818;
+
+transform:translateY(-4px) scale(1.05);
 
 }
 
@@ -517,6 +571,12 @@ width:24px;
 
 height:24px;
 
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 border-radius:50%;
 
 background:#fff;
@@ -524,12 +584,6 @@ background:#fff;
 color:#000;
 
 font-size:12px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
 
 font-weight:700;
 
@@ -547,19 +601,19 @@ width:380px;
 
 height:100%;
 
-background:#0b0b0b;
-
 padding:35px;
+
+background:#0b0b0b;
 
 overflow-y:auto;
 
-transition:.45s;
-
-z-index:99999;
+transition:.45s ease;
 
 border-left:1px solid rgba(255,255,255,.08);
 
 box-shadow:-20px 0 60px rgba(0,0,0,.6);
+
+z-index:99999;
 
 }
 
@@ -601,7 +655,7 @@ font-size:17px;
 
 margin-top:28px;
 
-font-family:'Anton';
+font-family:'Anton',sans-serif;
 
 font-size:34px;
 
@@ -617,11 +671,11 @@ padding:17px;
 
 margin-top:18px;
 
+border:none;
+
 background:#fff;
 
 color:#000;
-
-border:none;
 
 font-weight:700;
 
@@ -629,7 +683,7 @@ letter-spacing:2px;
 
 cursor:pointer;
 
-transition:.35s;
+transition:.35s ease;
 
 }
 
@@ -645,9 +699,7 @@ color:#fff;
 
 transform:translateY(-3px);
 
-}
-
-/*======================================================
+}/*======================================================
 HERO
 ======================================================*/
 
@@ -667,11 +719,17 @@ background:#050505;
 
 text-align:center;
 
+position:relative;
+
+overflow:hidden;
+
 }
 
 .hero-content{
 
 max-width:900px;
+
+z-index:2;
 
 }
 
@@ -679,11 +737,11 @@ max-width:900px;
 
 width:220px;
 
-margin-bottom:35px;
+margin:0 auto 35px;
 
-transition:.45s;
+filter:drop-shadow(0 25px 50px rgba(255,255,255,.08));
 
-filter:drop-shadow(0 25px 50px rgba(255,255,255,.06));
+transition:.45s ease;
 
 }
 
@@ -695,19 +753,19 @@ transform:scale(1.04);
 
 .hero h1{
 
-font-family:'Anton';
+font-family:'Anton',sans-serif;
 
 font-size:120px;
 
+letter-spacing:6px;
+
 line-height:.95;
 
-letter-spacing:6px;
+margin-bottom:18px;
 
 }
 
 .hero p{
-
-margin-top:20px;
 
 font-size:22px;
 
@@ -715,19 +773,21 @@ letter-spacing:6px;
 
 color:#8e8e8e;
 
+margin-bottom:45px;
+
+text-transform:uppercase;
+
 }
 
 .hero-btn{
 
-margin-top:45px;
-
 padding:18px 65px;
 
-background:#fff;
+border:none;
+
+background:#ffffff;
 
 color:#000;
-
-border:none;
 
 font-size:15px;
 
@@ -737,22 +797,22 @@ letter-spacing:4px;
 
 cursor:pointer;
 
-transition:.4s;
+transition:.4s ease;
 
 }
 
 .hero-btn:hover{
 
-background:#dcdcdc;
+background:#e8e8e8;
 
 transform:translateY(-5px);
 
-box-shadow:0 20px 45px rgba(255,255,255,.12);
+box-shadow:0 20px 45px rgba(255,255,255,.15);
 
 }
 
 /*======================================================
-SHOP
+SHOP TITLE
 ======================================================*/
 
 #shop{
@@ -765,7 +825,7 @@ background:#050505;
 
 #shop h2{
 
-font-family:'Anton';
+font-family:'Anton',sans-serif;
 
 font-size:72px;
 
@@ -774,6 +834,8 @@ letter-spacing:4px;
 text-align:center;
 
 margin-bottom:70px;
+
+text-transform:uppercase;
 
 }
 
@@ -785,63 +847,212 @@ grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
 
 gap:45px;
 
+align-items:start;
+
 }
+}/*======================================================
+PRODUCT CARDS
+======================================================*/
 
 .product{
 
-background:#0f0f0f;
+position:relative;
 
-border:1px solid rgba(255,255,255,.06);
+background:#0d0d0d;
+
+border:1px solid rgba(255,255,255,.08);
 
 border-radius:22px;
 
 overflow:hidden;
 
-transition:.45s;
+transition:.45s ease;
 
-box-shadow:0 25px 60px rgba(0,0,0,.45);
+box-shadow:0 18px 45px rgba(0,0,0,.45);
 
 }
 
 .product:hover{
 
-transform:translateY(-10px);
+transform:translateY(-8px);
 
-border-color:rgba(255,255,255,.15);
+border-color:rgba(255,255,255,.16);
+
+box-shadow:0 30px 70px rgba(0,0,0,.65);
 
 }
 
-.product img{
+/*======================================================
+PRODUCT IMAGE AREA
+======================================================*/
+
+.product-image{
+
+position:relative;
 
 width:100%;
 
-display:block;
+height:500px;
+
+background:#000;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/*======================================================
+FRONT & BACK IMAGES
+======================================================*/
+
+.product-image img{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
 
 padding:35px;
 
-transition:.45s;
+object-fit:contain;
+
+transition:
+opacity .35s ease,
+transform .45s ease;
 
 }
 
-.product:hover img{
+/* FRONT */
 
-transform:scale(1.05);
+.front-image{
+
+opacity:1;
+
+z-index:2;
 
 }
+
+/* BACK */
+
+.back-image{
+
+opacity:0;
+
+z-index:1;
+
+}
+
+/*======================================================
+DESKTOP HOVER
+======================================================*/
+
+.product:hover .front-image{
+
+opacity:0;
+
+transform:scale(1.03);
+
+}
+
+.product:hover .back-image{
+
+opacity:1;
+
+transform:scale(1.03);
+
+}
+
+/*======================================================
+MOBILE TAP
+======================================================*/
+
+.product.show-back .front-image{
+
+opacity:0;
+
+}
+
+.product.show-back .back-image{
+
+opacity:1;
+
+}
+
+/*======================================================
+PREMIUM IMAGE ANIMATION
+======================================================*/
+
+.product:hover .product-image{
+
+background:#050505;
+
+}
+
+.product-image::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:100%;
+
+height:80px;
+
+background:linear-gradient(
+
+to top,
+
+rgba(0,0,0,.30),
+
+transparent
+
+);
+
+pointer-events:none;
+
+}/*======================================================
+PRODUCT INFO
+======================================================*/
 
 .product-info{
 
-padding:28px;
+padding:30px;
+
+background:#0d0d0d;
 
 }
 
-.product h3{
+.product-info h3{
+
+font-family:'Oswald',sans-serif;
 
 font-size:32px;
 
+font-weight:600;
+
 letter-spacing:2px;
 
-margin-bottom:10px;
+margin-bottom:12px;
+
+text-transform:uppercase;
+
+color:#fff;
+
+line-height:1.1;
 
 }
 
@@ -849,13 +1060,17 @@ margin-bottom:10px;
 
 font-size:28px;
 
-color:#d8d8d8;
-
-margin-bottom:22px;
-
 font-weight:600;
 
+color:#d8d8d8;
+
+margin-bottom:24px;
+
 }
+
+/*======================================================
+SIZE BUTTONS
+======================================================*/
 
 .sizes{
 
@@ -871,23 +1086,39 @@ margin-bottom:25px;
 
 .sizes button{
 
-padding:12px 20px;
+flex:1;
+
+min-width:60px;
+
+padding:13px 18px;
 
 background:transparent;
 
-color:#fff;
-
 border:1px solid rgba(255,255,255,.18);
 
-cursor:pointer;
+color:#fff;
 
-transition:.35s;
+font-size:14px;
 
 font-weight:600;
 
+letter-spacing:1px;
+
+cursor:pointer;
+
+transition:.3s ease;
+
 }
 
-.sizes button:hover,
+.sizes button:hover{
+
+background:#fff;
+
+color:#000;
+
+border-color:#fff;
+
+}
 
 .sizes button.active{
 
@@ -895,7 +1126,13 @@ background:#fff;
 
 color:#000;
 
+border-color:#fff;
+
 }
+
+/*======================================================
+ADD TO CART
+======================================================*/
 
 .add-cart{
 
@@ -903,27 +1140,71 @@ width:100%;
 
 padding:18px;
 
+border:none;
+
+border-radius:12px;
+
 background:#fff;
 
 color:#000;
 
-border:none;
+font-size:15px;
 
 font-weight:700;
 
 letter-spacing:3px;
 
+text-transform:uppercase;
+
 cursor:pointer;
 
-transition:.35s;
+transition:.35s ease;
 
 }
 
 .add-cart:hover{
 
-background:#dcdcdc;
+background:#e8e8e8;
 
 transform:translateY(-3px);
+
+box-shadow:0 15px 35px rgba(255,255,255,.10);
+
+}
+
+.add-cart:active{
+
+transform:scale(.98);
+
+}
+
+/*======================================================
+PRODUCT CARD ANIMATION
+======================================================*/
+
+.product{
+
+animation:fadeUp .7s ease both;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(45px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
 
 }/*======================================================
 SOLD OUT PRODUCT
@@ -939,17 +1220,29 @@ align-items:center;
 
 flex-direction:column;
 
-min-height:620px;
+min-height:650px;
 
-background:#0c0c0c;
+background:#0b0b0b;
 
-border:1px dashed rgba(255,255,255,.12);
+border:1px dashed rgba(255,255,255,.15);
+
+border-radius:22px;
+
+transition:.4s ease;
+
+}
+
+.sold:hover{
+
+transform:translateY(-8px);
+
+border-color:rgba(255,255,255,.25);
 
 }
 
 .sold-box{
 
-padding:15px 35px;
+padding:16px 38px;
 
 background:#fff;
 
@@ -961,27 +1254,31 @@ letter-spacing:4px;
 
 margin-bottom:35px;
 
+font-size:15px;
+
 }
 
 .sold h3{
 
 font-family:'Anton',sans-serif;
 
-font-size:38px;
+font-size:40px;
 
 letter-spacing:3px;
+
+color:#fff;
 
 }
 
 /*======================================================
-NOTICE
+IMPORTANT NOTICE
 ======================================================*/
 
 .notice{
 
-background:#080808;
+padding:130px 25px;
 
-padding:140px 25px;
+background:#080808;
 
 border-top:1px solid rgba(255,255,255,.06);
 
@@ -1001,7 +1298,7 @@ text-align:center;
 
 font-family:'Anton',sans-serif;
 
-font-size:65px;
+font-size:64px;
 
 letter-spacing:4px;
 
@@ -1039,13 +1336,13 @@ FOOTER
 
 footer{
 
-background:#050505;
-
 padding:90px 20px;
 
-text-align:center;
+background:#050505;
 
 border-top:1px solid rgba(255,255,255,.08);
+
+text-align:center;
 
 }
 
@@ -1053,15 +1350,15 @@ border-top:1px solid rgba(255,255,255,.08);
 
 width:120px;
 
-margin-bottom:25px;
+margin:0 auto 25px;
 
-transition:.4s;
+transition:.35s ease;
 
 }
 
 .footer-logo:hover{
 
-transform:scale(1.06);
+transform:scale(1.05);
 
 }
 
@@ -1073,25 +1370,23 @@ font-size:58px;
 
 letter-spacing:4px;
 
+margin-bottom:18px;
+
 }
 
 footer p{
-
-margin-top:18px;
 
 font-size:18px;
 
 letter-spacing:4px;
 
-color:#8e8e8e;
+color:#8d8d8d;
+
+margin-bottom:30px;
 
 }
 
 footer small{
-
-display:block;
-
-margin-top:35px;
 
 font-size:13px;
 
@@ -1135,6 +1430,10 @@ PHONE OPTIMIZATION
 
 height:30px;
 
+}
+
+.top-bar-inner{
+
 font-size:10px;
 
 letter-spacing:1px;
@@ -1155,20 +1454,6 @@ font-size:12px;
 
 }
 
-.cart-icon{
-
-width:52px;
-
-height:52px;
-
-right:16px;
-
-top:82px;
-
-font-size:22px;
-
-}
-
 .cart{
 
 width:100%;
@@ -1182,6 +1467,20 @@ padding:25px;
 .cart.active{
 
 right:0;
+
+}
+
+.cart-icon{
+
+top:82px;
+
+right:16px;
+
+width:52px;
+
+height:52px;
+
+font-size:22px;
 
 }
 
@@ -1203,8 +1502,6 @@ font-size:64px;
 
 letter-spacing:3px;
 
-line-height:1;
-
 }
 
 .hero p{
@@ -1219,8 +1516,6 @@ letter-spacing:3px;
 
 width:100%;
 
-padding:18px;
-
 }
 
 #shop{
@@ -1233,8 +1528,6 @@ padding:80px 18px;
 
 font-size:46px;
 
-margin-bottom:45px;
-
 }
 
 .products{
@@ -1245,15 +1538,9 @@ gap:30px;
 
 }
 
-.product{
+.product-image{
 
-border-radius:18px;
-
-}
-
-.product img{
-
-padding:22px;
+height:420px;
 
 }
 
@@ -1263,7 +1550,7 @@ padding:22px;
 
 }
 
-.product h3{
+.product-info h3{
 
 font-size:28px;
 
@@ -1272,26 +1559,6 @@ font-size:28px;
 .price{
 
 font-size:24px;
-
-}
-
-.sizes{
-
-justify-content:center;
-
-}
-
-.sizes button{
-
-flex:1;
-
-min-width:65px;
-
-}
-
-.add-cart{
-
-padding:17px;
 
 }
 
@@ -1310,8 +1577,6 @@ font-size:42px;
 .notice p{
 
 font-size:18px;
-
-line-height:1.7;
 
 }
 
@@ -1375,66 +1640,6 @@ max-width:320px;
 
 padding:17px;
 
-font-size:14px;
-
 }
-
-}
-
-/*======================================================
-LUXURY ANIMATIONS
-======================================================*/
-
-.product{
-
-animation:fadeUp .7s ease both;
-
-}
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(45px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-button{
-
-transition:.35s ease;
-
-}
-
-img{
-
-user-select:none;
-
--webkit-user-drag:none;
-
-}
-
-body::selection{
-
-background:#fff;
-
-color:#000;
-
-}
-
-html{
-
-background:#050505;
 
 }
