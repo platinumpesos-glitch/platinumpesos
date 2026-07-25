@@ -1,344 +1,1049 @@
 /*======================================================
 PLATINUMPESOS®
-PREMIUM STREETWEAR
-SCRIPT VERSION 3.0
+SCRIPT A1
 ======================================================*/
 
 /*======================================================
-GLOBAL
+GLOBAL VARIABLES
+======================================================*/
+
+const body = document.body;
+
+const website = document.getElementById("website");
+
+const videoGate = document.getElementById("videoGate");
+
+const enterStore = document.getElementById("enterStore");
+
+const header = document.querySelector(".header");
+
+/*======================================================
+ENTER STORE
+======================================================*/
+
+if (enterStore) {
+
+    enterStore.addEventListener("click", () => {
+
+        videoGate.classList.add("hide");
+
+        body.classList.remove("no-scroll");
+
+        setTimeout(() => {
+
+            if (website) {
+
+                website.style.display = "block";
+
+            }
+
+        }, 400);
+
+    });
+
+}
+
+/*======================================================
+INITIAL STATE
+======================================================*/
+
+window.addEventListener("load", () => {
+
+    if (website) {
+
+        website.style.display = "none";
+
+    }
+
+});
+
+/*======================================================
+HEADER SCROLL EFFECT
+======================================================*/
+
+window.addEventListener("scroll", () => {
+
+    if (!header) return;
+
+    if (window.scrollY > 50) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+/*======================================================
+SCROLL REVEAL
+======================================================*/
+
+const revealElements = document.querySelectorAll(
+
+    ".product-card, .collection-header, .info-box, .newsletter, .footer-grid"
+
+);
+
+const revealObserver = new IntersectionObserver(
+
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+
+        threshold: 0.15
+
+    }
+
+);
+
+revealElements.forEach((element) => {
+
+    element.classList.add("fade-in");
+
+    revealObserver.observe(element);
+
+});
+
+/*======================================================
+SMOOTH COLLECTION LINKS
+======================================================*/
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+
+    link.addEventListener("click", function (e) {
+
+        const targetId = this.getAttribute("href");
+
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        target.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    });
+
+});
+
+/*======================================================
+PREVENT EMPTY BUTTON LINKS
+======================================================*/
+
+document.querySelectorAll("button").forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        button.blur();
+
+    });
+
+});/*======================================================
+PLATINUMPESOS®
+SCRIPT A2
+PRODUCT IMAGE SLIDER
+======================================================*/
+
+document.querySelectorAll(".product-card").forEach((card) => {
+
+    const images = card.querySelectorAll(".product-image");
+
+    const dots = card.querySelectorAll(".slider-dot");
+
+    if (images.length <= 1 || dots.length <= 1) return;
+
+    dots.forEach((dot, index) => {
+
+        dot.addEventListener("click", () => {
+
+            images.forEach((image) => {
+
+                image.classList.remove("active");
+
+            });
+
+            dots.forEach((button) => {
+
+                button.classList.remove("active");
+
+            });
+
+            images[index].classList.add("active");
+
+            dot.classList.add("active");
+
+        });
+
+    });
+
+});
+
+/*======================================================
+KEYBOARD SUPPORT
+======================================================*/
+
+document.querySelectorAll(".slider-dot").forEach((dot) => {
+
+    dot.addEventListener("keydown", (event) => {
+
+        if (event.key === "Enter" || event.key === " ") {
+
+            event.preventDefault();
+
+            dot.click();
+
+        }
+
+    });
+
+});
+
+/*======================================================
+OPTIONAL HOVER PREVIEW (DESKTOP)
+======================================================*/
+
+document.querySelectorAll(".product-card").forEach((card) => {
+
+    const images = card.querySelectorAll(".product-image");
+
+    const dots = card.querySelectorAll(".slider-dot");
+
+    if (images.length !== 2) return;
+
+    card.addEventListener("mouseenter", () => {
+
+        if (window.innerWidth <= 992) return;
+
+        images[0].classList.remove("active");
+
+        images[1].classList.add("active");
+
+        dots[0].classList.remove("active");
+
+        dots[1].classList.add("active");
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        if (window.innerWidth <= 992) return;
+
+        images[1].classList.remove("active");
+
+        images[0].classList.add("active");
+
+        dots[1].classList.remove("active");
+
+        dots[0].classList.add("active");
+
+    });
+
+});/*======================================================
+PLATINUMPESOS®
+SCRIPT A3
+SIZE SELECTION
+======================================================*/
+
+const selectedSizes = {};
+
+/*======================================================
+SIZE BUTTONS
+======================================================*/
+
+document.querySelectorAll(".product-card").forEach((card) => {
+
+    const productName =
+        card.querySelector(".cart-btn")?.dataset.name;
+
+    const sizeButtons =
+        card.querySelectorAll(".size-btn");
+
+    if (!productName || sizeButtons.length === 0) return;
+
+    /* Default selected size */
+
+    const defaultButton = card.querySelector(".active-size");
+
+    if (defaultButton) {
+
+        selectedSizes[productName] =
+            defaultButton.textContent.trim();
+
+    }
+
+    sizeButtons.forEach((button) => {
+
+        button.addEventListener("click", () => {
+
+            /* Remove previous selection */
+
+            sizeButtons.forEach((btn) => {
+
+                btn.classList.remove("active-size");
+
+            });
+
+            /* Select new size */
+
+            button.classList.add("active-size");
+
+            selectedSizes[productName] =
+                button.textContent.trim();
+
+        });
+
+    });
+
+});
+
+/*======================================================
+GET SELECTED SIZE
+======================================================*/
+
+function getSelectedSize(productName){
+
+    if(selectedSizes[productName]){
+
+        return selectedSizes[productName];
+
+    }
+
+    return "M";
+
+}
+
+/*======================================================
+OPTIONAL SIZE WARNING
+======================================================*/
+
+function ensureSizeSelected(productName){
+
+    return !!selectedSizes[productName];
+
+}
+
+/*======================================================
+SIZE BUTTON ACCESSIBILITY
+======================================================*/
+
+document.querySelectorAll(".size-btn").forEach((button)=>{
+
+    button.setAttribute("type","button");
+
+    button.addEventListener("keydown",(event)=>{
+
+        if(event.key==="Enter" || event.key===" "){
+
+            event.preventDefault();
+
+            button.click();
+
+        }
+
+    });
+
+});
+
+/*======================================================
+DEBUG (REMOVE LATER IF DESIRED)
+======================================================*/
+
+// console.log(selectedSizes);/*======================================================
+PLATINUMPESOS®
+SCRIPT A4
+SHOPPING CART CORE
 ======================================================*/
 
 let cart = [];
 
-const cartContainer = document.getElementById("cart");
-const cartItems = document.getElementById("cart-items");
-const cartCount = document.getElementById("cart-count");
-const total = document.getElementById("total");
-
 /*======================================================
-VIDEO GATE
+ELEMENTS
 ======================================================*/
 
-document.addEventListener("DOMContentLoaded",()=>{
+const cartDrawer = document.querySelector(".cart-drawer");
 
-const gate=document.getElementById("video-gate");
-const site=document.getElementById("site-content");
-const enter=document.getElementById("enter-store");
-const video=document.getElementById("intro-video");
+const cartBody = document.querySelector(".cart-body");
 
-if(video){
+const cartCount = document.getElementById("cartCount");
 
-video.muted=true;
+const openCartBtn = document.getElementById("openCart");
 
-video.setAttribute("playsinline","");
+const closeCartBtn = document.querySelector(".close-cart");
 
-video.setAttribute("webkit-playsinline","");
+/*======================================================
+OPEN / CLOSE CART
+======================================================*/
 
-video.play().catch(()=>{});
+if(openCartBtn){
+
+    openCartBtn.addEventListener("click",()=>{
+
+        cartDrawer.classList.add("open");
+
+        document.body.classList.add("no-scroll");
+
+    });
 
 }
 
-site.style.display="none";
+if(closeCartBtn){
 
-enter.addEventListener("click",()=>{
+    closeCartBtn.addEventListener("click",()=>{
 
-gate.classList.add("hide");
+        cartDrawer.classList.remove("open");
 
-setTimeout(()=>{
+        document.body.classList.remove("no-scroll");
 
-gate.style.display="none";
-
-site.style.display="block";
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-},900);
-
-});
-
-});
-
-/*======================================================
-OPEN CART
-======================================================*/
-
-function openCart(){
-
-cartContainer.classList.add("active");
+    });
 
 }
 
 /*======================================================
-CLOSE CART
+UPDATE CART COUNT
 ======================================================*/
 
-function closeCart(){
+function updateCartCount(){
 
-cartContainer.classList.remove("active");
+    if(!cartCount) return;
+
+    let total = 0;
+
+    cart.forEach(item=>{
+
+        total += item.quantity;
+
+    });
+
+    cartCount.textContent = total;
 
 }
 
 /*======================================================
-SIZE SELECTOR
-======================================================*/
-
-document.querySelectorAll(".sizes button").forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-const parent=button.parentElement;
-
-parent.querySelectorAll("button").forEach(btn=>{
-
-btn.classList.remove("active");
-
-});
-
-button.classList.add("active");
-
-});
-
-});/*======================================================
 ADD TO CART
 ======================================================*/
 
-document.querySelectorAll(".add-cart").forEach(button=>{
+document.querySelectorAll(".cart-btn").forEach(button=>{
 
-button.addEventListener("click",()=>{
+    button.addEventListener("click",()=>{
 
-const product=button.closest(".product");
+        const name = button.dataset.name;
 
-const name=button.dataset.name;
+        const price = Number(button.dataset.price);
 
-const price=Number(button.dataset.price);
+        const size = getSelectedSize(name);
 
-let size="";
+        const existing = cart.find(item=>
 
-const sizes=product.querySelector(".sizes");
+            item.name===name && item.size===size
 
-if(sizes){
+        );
 
-const active=sizes.querySelector(".active");
+        if(existing){
 
-if(!active){
+            existing.quantity++;
 
-alert("Please select a size.");
+        }else{
 
-return;
+            cart.push({
 
-}
+                name:name,
 
-size=active.innerText;
+                price:price,
 
-}
+                size:size,
 
-cart.push({
+                quantity:1
 
-name,
+            });
 
-price,
+        }
 
-size
+        updateCartCount();
 
-});
+        renderCart();
 
-button.innerText="ADDED ✓";
+        if(cartDrawer){
 
-button.style.background="#18c964";
+            cartDrawer.classList.add("open");
 
-button.style.color="#fff";
+        }
 
-setTimeout(()=>{
-
-button.innerText="ADD TO CART";
-
-button.style.background="#fff";
-
-button.style.color="#000";
-
-},1200);
-
-updateCart();
-
-});
+    });
 
 });
 
 /*======================================================
-UPDATE CART
+RENDER CART
 ======================================================*/
 
-function updateCart(){
+function renderCart(){
 
-cartItems.innerHTML="";
+    if(!cartBody) return;
 
-let totalPrice=0;
+    if(cart.length===0){
 
-cart.forEach((item,index)=>{
+        cartBody.innerHTML=`
 
-const div=document.createElement("div");
+            <div class="empty-cart">
 
-div.className="cart-item";
+                <p>Your cart is empty.</p>
 
-div.innerHTML=`
+            </div>
 
-<div>
+        `;
 
-<strong>${item.name}</strong><br>
+        return;
 
-${item.size ? item.size : "ONE SIZE"}
+    }
+
+    cartBody.innerHTML="";
+
+    cart.forEach((item,index)=>{
+
+        cartBody.innerHTML += `
+
+        <div class="cart-item">
+
+            <div class="cart-item-info">
+
+                <h4>${item.name}</h4>
+
+                <div class="cart-item-price">
+
+                    Size: ${item.size}
+
+                </div>
+
+                <div class="cart-item-price">
+
+                    P${item.price}
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <strong>x${item.quantity}</strong>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}/*======================================================
+PLATINUMPESOS®
+SCRIPT A5
+CART MANAGEMENT
+======================================================*/
+
+/*======================================================
+CART TOTAL
+======================================================*/
+
+const cartTotal = document.getElementById("cartTotal");
+
+/*======================================================
+SAVE CART
+======================================================*/
+
+function saveCart(){
+
+    localStorage.setItem(
+
+        "pp_cart",
+
+        JSON.stringify(cart)
+
+    );
+
+}
+
+/*======================================================
+LOAD CART
+======================================================*/
+
+function loadCart(){
+
+    const saved = localStorage.getItem("pp_cart");
+
+    if(saved){
+
+        cart = JSON.parse(saved);
+
+    }
+
+    updateCartCount();
+
+    renderCart();
+
+}
+
+loadCart();
+
+/*======================================================
+CALCULATE TOTAL
+======================================================*/
+
+function calculateTotal(){
+
+    let total = 0;
+
+    cart.forEach(item=>{
+
+        total += item.price * item.quantity;
+
+    });
+
+    if(cartTotal){
+
+        cartTotal.textContent = `P${total}`;
+
+    }
+
+}
+
+/*======================================================
+NEW CART RENDER
+======================================================*/
+
+function renderCart(){
+
+    if(!cartBody) return;
+
+    if(cart.length===0){
+
+        cartBody.innerHTML=`
+
+        <div class="empty-cart">
+
+            <p>Your cart is empty.</p>
+
+        </div>
+
+        `;
+
+        calculateTotal();
+
+        saveCart();
+
+        return;
+
+    }
+
+    cartBody.innerHTML="";
+
+    cart.forEach((item,index)=>{
+
+        cartBody.innerHTML+=`
+
+<div class="cart-item">
+
+<div class="cart-item-info">
+
+<h4>${item.name}</h4>
+
+<div class="cart-item-price">
+
+Size: ${item.size}
 
 </div>
 
-<div>
+<div class="cart-item-price">
 
 P${item.price}
 
 </div>
 
+</div>
+
+<div class="quantity-controls">
+
+<button
+
+class="quantity-btn minus-btn"
+
+data-index="${index}">
+
+−
+
+</button>
+
+<span class="quantity-value">
+
+${item.quantity}
+
+</span>
+
+<button
+
+class="quantity-btn plus-btn"
+
+data-index="${index}">
+
++
+
+</button>
+
+</div>
+
+<button
+
+class="remove-item"
+
+data-index="${index}">
+
+REMOVE
+
+</button>
+
+</div>
+
 `;
 
-cartItems.appendChild(div);
+    });
 
-totalPrice+=item.price;
+    attachCartEvents();
 
-});
+    calculateTotal();
 
-cartCount.innerText=cart.length;
+    updateCartCount();
 
-total.innerText="TOTAL : P"+totalPrice;
+    saveCart();
 
 }
 
 /*======================================================
-REMOVE CART ITEMS
+PLUS / MINUS / REMOVE
 ======================================================*/
 
-function removeCartItem(index){
+function attachCartEvents(){
+
+document.querySelectorAll(".plus-btn")
+
+.forEach(button=>{
+
+button.onclick=()=>{
+
+const index=button.dataset.index;
+
+cart[index].quantity++;
+
+renderCart();
+
+};
+
+});
+
+document.querySelectorAll(".minus-btn")
+
+.forEach(button=>{
+
+button.onclick=()=>{
+
+const index=button.dataset.index;
+
+cart[index].quantity--;
+
+if(cart[index].quantity<=0){
 
 cart.splice(index,1);
 
-updateCart();
+}
+
+renderCart();
+
+};
+
+});
+
+document.querySelectorAll(".remove-item")
+
+.forEach(button=>{
+
+button.onclick=()=>{
+
+const index=button.dataset.index;
+
+cart.splice(index,1);
+
+renderCart();
+
+};
+
+});
 
 }
 
 /*======================================================
-CLEAR CART
+INITIAL UPDATE
 ======================================================*/
 
-function clearCart(){
+calculateTotal();
 
-cart=[];
-
-updateCart();
-
-}/*======================================================
+updateCartCount();/*======================================================
+PLATINUMPESOS®
+SCRIPT A6
 WHATSAPP CHECKOUT
 ======================================================*/
 
-document.getElementById("checkout").addEventListener("click",()=>{
+const checkoutButton = document.querySelector(".checkout-btn");
 
-if(cart.length===0){
+function buildWhatsAppMessage(){
 
-alert("Your cart is empty.");
+    if(cart.length===0){
 
-return;
+        return null;
+
+    }
+
+    let total = 0;
+
+    let message = "🛒 *PLATINUMPESOS ORDER*%0A%0A";
+
+    cart.forEach((item,index)=>{
+
+        const itemTotal = item.price * item.quantity;
+
+        total += itemTotal;
+
+        message +=
+
+`${index+1}. ${item.name}%0A` +
+
+`Size: ${item.size}%0A` +
+
+`Quantity: ${item.quantity}%0A` +
+
+`Price: P${item.price}%0A` +
+
+`Subtotal: P${itemTotal}%0A%0A`;
+
+    });
+
+    message +=
+
+`------------------------%0A` +
+
+`TOTAL: P${total}%0A%0A` +
+
+`Thank you for shopping with PLATINUMPESOS®.`;
+
+    return message;
 
 }
 
-let totalPrice=0;
+/*======================================================
+WHATSAPP CHECKOUT
+======================================================*/
 
-let message="Hello PLATINUMPESOS,%0A%0A";
+if(checkoutButton){
 
-message+="I would like to order:%0A%0A";
+    checkoutButton.addEventListener("click",()=>{
 
-cart.forEach(item=>{
+        if(cart.length===0){
 
-message+="• "+item.name;
+            alert("Your cart is empty.");
 
-if(item.size){
+            return;
 
-message+=" ("+item.size+")";
+        }
+
+        const message = buildWhatsAppMessage();
+
+        const phone = "267XXXXXXXX"; // <-- Replace with your number
+
+        const url =
+
+`https://wa.me/${phone}?text=${message}`;
+
+        window.open(url,"_blank");
+
+    });
 
 }
 
-message+=" - P"+item.price+"%0A";
+/*======================================================
+ESC KEY CLOSES CART
+======================================================*/
 
-totalPrice+=item.price;
+document.addEventListener("keydown",(event)=>{
+
+    if(event.key==="Escape"){
+
+        if(cartDrawer){
+
+            cartDrawer.classList.remove("open");
+
+        }
+
+        document.body.classList.remove("no-scroll");
+
+    }
 
 });
 
-message+="%0A";
+/*======================================================
+CLICK OUTSIDE TO CLOSE CART
+======================================================*/
 
-message+="TOTAL : P"+totalPrice+"%0A%0A";
+document.addEventListener("click",(event)=>{
 
-message+="Name : %0A";
+    if(!cartDrawer) return;
 
-message+="Phone Number : %0A";
+    if(!cartDrawer.classList.contains("open")) return;
 
-message+="Location : %0A%0A";
+    const clickedCart = cartDrawer.contains(event.target);
 
-message+="Thank you.";
+    const clickedOpenButton =
 
-window.open(
+        openCartBtn && openCartBtn.contains(event.target);
 
-"https://wa.me/26774303330?text="+message,
+    if(!clickedCart && !clickedOpenButton){
 
-"_blank"
+        cartDrawer.classList.remove("open");
+
+        document.body.classList.remove("no-scroll");
+
+    }
+
+});
+
+/*======================================================
+SUCCESS MESSAGE
+======================================================*/
+
+function showCartNotification(text){
+
+    const notice = document.createElement("div");
+
+    notice.className = "pp-notification";
+
+    notice.textContent = text;
+
+    document.body.appendChild(notice);
+
+    setTimeout(()=>{
+
+        notice.classList.add("show");
+
+    },10);
+
+    setTimeout(()=>{
+
+        notice.classList.remove("show");
+
+        setTimeout(()=>{
+
+            notice.remove();
+
+        },300);
+
+    },2200);
+
+}
+
+/*======================================================
+ADD SUCCESS MESSAGE
+======================================================*/
+
+document.querySelectorAll(".cart-btn").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        showCartNotification("Added to cart");
+
+    });
+
+});/*======================================================
+PLATINUMPESOS®
+SCRIPT A7
+PREMIUM INTERACTIONS
+======================================================*/
+
+/*======================================================
+PRELOAD PRODUCT IMAGES
+======================================================*/
+
+document.querySelectorAll(".product-image").forEach((image)=>{
+
+    const preload = new Image();
+
+    preload.src = image.src;
+
+});
+
+/*======================================================
+SCROLL TO TOP
+======================================================*/
+
+const scrollTopButton = document.createElement("button");
+
+scrollTopButton.className = "scroll-top";
+
+scrollTopButton.innerHTML = "↑";
+
+document.body.appendChild(scrollTopButton);
+
+scrollTopButton.addEventListener("click",()=>{
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>500){
+
+        scrollTopButton.classList.add("show");
+
+    }else{
+
+        scrollTopButton.classList.remove("show");
+
+    }
+
+});
+
+/*======================================================
+REVEAL SECTIONS
+======================================================*/
+
+const revealItems=document.querySelectorAll(
+
+".collection,.product-card,.newsletter,.store-information,.info-box,footer"
 
 );
-
-});
-
-/*======================================================
-ESC CLOSE CART
-======================================================*/
-
-document.addEventListener("keydown",e=>{
-
-if(e.key==="Escape"){
-
-closeCart();
-
-}
-
-});
-
-/*======================================================
-CLICK OUTSIDE CART
-======================================================*/
-
-document.addEventListener("click",e=>{
-
-if(
-
-cartContainer.classList.contains("active")
-
-&&
-
-!cartContainer.contains(e.target)
-
-&&
-
-!e.target.closest(".cart-icon")
-
-){
-
-closeCart();
-
-}
-
-});
-
-/*======================================================
-PRODUCT REVEAL
-======================================================*/
 
 const observer=new IntersectionObserver(entries=>{
 
@@ -346,9 +1051,7 @@ entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
+entry.target.classList.add("show");
 
 }
 
@@ -360,394 +1063,315 @@ threshold:.15
 
 });
 
-document.querySelectorAll(".product").forEach(card=>{
+revealItems.forEach(item=>{
 
-card.style.opacity="0";
+item.classList.add("fade-in");
 
-card.style.transform="translateY(45px)";
-
-card.style.transition=".8s ease";
-
-observer.observe(card);
+observer.observe(item);
 
 });
 
 /*======================================================
-BUTTON RIPPLE
+SMOOTH BUTTON PRESS
 ======================================================*/
 
 document.querySelectorAll("button").forEach(button=>{
 
-button.addEventListener("click",function(e){
+button.addEventListener("mousedown",()=>{
 
-const circle=document.createElement("span");
-
-const diameter=Math.max(
-
-this.clientWidth,
-
-this.clientHeight
-
-);
-
-circle.style.width=diameter+"px";
-
-circle.style.height=diameter+"px";
-
-circle.style.position="absolute";
-
-circle.style.borderRadius="50%";
-
-circle.style.left=(
-
-e.clientX-
-
-this.getBoundingClientRect().left-
-
-diameter/2
-
-)+"px";
-
-circle.style.top=(
-
-e.clientY-
-
-this.getBoundingClientRect().top-
-
-diameter/2
-
-)+"px";
-
-circle.style.background="rgba(255,255,255,.25)";
-
-circle.style.transform="scale(0)";
-
-circle.style.transition=".6s";
-
-circle.style.pointerEvents="none";
-
-this.style.position="relative";
-
-this.style.overflow="hidden";
-
-this.appendChild(circle);
-
-requestAnimationFrame(()=>{
-
-circle.style.transform="scale(4)";
-
-circle.style.opacity="0";
+button.style.transform="scale(.97)";
 
 });
 
-setTimeout(()=>{
+button.addEventListener("mouseup",()=>{
 
-circle.remove();
+button.style.transform="";
 
-},650);
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.transform="";
 
 });
 
 });
 
 /*======================================================
-AUTO PLAY VIDEO
+HEADER SHADOW
 ======================================================*/
 
-window.addEventListener("load",()=>{
+window.addEventListener("scroll",()=>{
 
-const video=document.getElementById("intro-video");
+if(window.scrollY>20){
 
-if(video){
+header.classList.add("shadow");
 
-video.muted=true;
+}else{
 
-video.playsInline=true;
-
-video.play().catch(()=>{});
+header.classList.remove("shadow");
 
 }
 
 });
 
 /*======================================================
-PREVENT IMAGE DRAG
+LAZY IMAGE EFFECT
 ======================================================*/
 
 document.querySelectorAll("img").forEach(img=>{
 
-img.setAttribute("draggable","false");
+img.loading="lazy";
 
 });
 
 /*======================================================
-PAGE LOADED
+PRODUCT HOVER GLOW
+======================================================*/
+
+document.querySelectorAll(".product-card").forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transition=".35s";
+
+});
+
+});
+
+/*======================================================
+WELCOME MESSAGE
 ======================================================*/
 
 window.addEventListener("load",()=>{
 
-document.body.style.opacity="1";
+setTimeout(()=>{
+
+console.log(
+
+"PLATINUMPESOS® Store Loaded."
+
+);
+
+},500);
 
 });/*======================================================
-CORTEIZ IMAGE SWITCH
-PART 2A
+PLATINUMPESOS®
+SCRIPT A8
+FINAL OPTIMISATION
+VERSION 4.0
 ======================================================*/
-
-document.querySelectorAll(".product").forEach(product=>{
-
-const front=product.querySelector(".front-image");
-
-const back=product.querySelector(".back-image");
-
-if(!front||!back)return;
 
 /*======================================================
-DESKTOP
+SAFE INITIALISATION
 ======================================================*/
 
-product.addEventListener("mouseenter",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-product.classList.add("show-back");
+    updateCartCount();
 
-});
+    if (typeof renderCart === "function") {
 
-product.addEventListener("mouseleave",()=>{
+        renderCart();
 
-product.classList.remove("show-back");
+    }
 
 });
 
 /*======================================================
-MOBILE TAP
+CLOSE CART AFTER CHECKOUT
 ======================================================*/
 
-let tapped=false;
+if (checkoutButton) {
 
-product.addEventListener("click",e=>{
+    checkoutButton.addEventListener("click", () => {
 
-if(
+        setTimeout(() => {
 
-e.target.closest(".add-cart")||
+            if (cartDrawer) {
 
-e.target.closest(".sizes button")
+                cartDrawer.classList.remove("open");
 
-){
+            }
 
-return;
+            document.body.classList.remove("no-scroll");
+
+        }, 500);
+
+    });
 
 }
 
-if(window.innerWidth<=768){
+/*======================================================
+PREVENT DOUBLE CLICKS
+======================================================*/
 
-e.preventDefault();
+document.querySelectorAll(".cart-btn").forEach((button) => {
 
-tapped=!tapped;
+    button.addEventListener("click", () => {
 
-if(tapped){
+        button.disabled = true;
 
-product.classList.add("show-back");
+        setTimeout(() => {
 
-}else{
+            button.disabled = false;
 
-product.classList.remove("show-back");
+        }, 500);
+
+    });
+
+});
+
+/*======================================================
+NOTIFICATION STYLES
+======================================================*/
+
+const notificationStyle = document.createElement("style");
+
+notificationStyle.innerHTML = `
+
+.pp-notification{
+
+position:fixed;
+
+bottom:35px;
+
+right:35px;
+
+background:#ffffff;
+
+color:#000000;
+
+padding:16px 26px;
+
+border-radius:50px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+opacity:0;
+
+transform:translateY(25px);
+
+transition:.35s;
+
+z-index:99999;
 
 }
 
-}
+.pp-notification.show{
 
-});
+opacity:1;
 
-});
-
-/*======================================================
-RESET IMAGES AFTER RESIZE
-======================================================*/
-
-window.addEventListener("resize",()=>{
-
-if(window.innerWidth>768){
-
-document.querySelectorAll(".product").forEach(product=>{
-
-product.classList.remove("show-back");
-
-});
+transform:translateY(0);
 
 }
 
-});
+.scroll-top{
 
-/*======================================================
-PRELOAD PRODUCT IMAGES
-======================================================*/
+position:fixed;
 
-document.querySelectorAll(".front-image,.back-image").forEach(img=>{
+right:30px;
 
-const preload=new Image();
+bottom:30px;
 
-preload.src=img.src;
+width:52px;
 
-});
+height:52px;
 
-/*======================================================
-SMOOTH IMAGE LOADING
-======================================================*/
+border:none;
 
-document.querySelectorAll(".product-image img").forEach(img=>{
+border-radius:50%;
 
-img.onload=()=>{
+background:#ffffff;
 
-img.style.opacity=img.classList.contains("front-image")?1:0;
+color:#000000;
 
-};
+font-size:20px;
 
-});/*======================================================
-PART 2B
-PREMIUM PRODUCT INTERACTIONS
-======================================================*/
+font-weight:bold;
 
-/*======================================================
-IMAGE ZOOM EFFECT
-======================================================*/
+cursor:pointer;
 
-document.querySelectorAll(".product").forEach(product=>{
+opacity:0;
 
-const images=product.querySelectorAll(".product-image img");
+pointer-events:none;
 
-product.addEventListener("mouseenter",()=>{
+transition:.35s;
 
-images.forEach(img=>{
-
-img.style.transform="scale(1.03)";
-
-});
-
-});
-
-product.addEventListener("mouseleave",()=>{
-
-images.forEach(img=>{
-
-img.style.transform="scale(1)";
-
-});
-
-});
-
-});
-
-/*======================================================
-TOUCH OPTIMIZATION
-======================================================*/
-
-document.querySelectorAll(".product").forEach(product=>{
-
-product.addEventListener("touchstart",()=>{
-
-product.style.transition=".25s ease";
-
-},{passive:true});
-
-});
-
-/*======================================================
-PRELOAD IMAGES
-======================================================*/
-
-window.addEventListener("load",()=>{
-
-document.querySelectorAll(".product-image img").forEach(img=>{
-
-const preload=new Image();
-
-preload.src=img.src;
-
-});
-
-});
-
-/*======================================================
-SMOOTH FADE WHEN IMAGES LOAD
-======================================================*/
-
-document.querySelectorAll(".product-image img").forEach(img=>{
-
-if(img.complete){
-
-img.style.opacity=img.classList.contains("front-image")?"1":"0";
-
-}else{
-
-img.addEventListener("load",()=>{
-
-img.style.opacity=img.classList.contains("front-image")?"1":"0";
-
-});
+z-index:9999;
 
 }
 
-});
+.scroll-top.show{
 
-/*======================================================
-PRODUCT HOVER LIFT
-======================================================*/
+opacity:1;
 
-document.querySelectorAll(".product").forEach(product=>{
-
-product.addEventListener("mouseenter",()=>{
-
-product.style.transform="translateY(-8px)";
-
-});
-
-product.addEventListener("mouseleave",()=>{
-
-product.style.transform="translateY(0)";
-
-});
-
-});
-
-/*======================================================
-PREVENT DOUBLE TAP ZOOM
-======================================================*/
-
-let lastTouchEnd=0;
-
-document.addEventListener("touchend",function(e){
-
-const now=(new Date()).getTime();
-
-if(now-lastTouchEnd<=300){
-
-e.preventDefault();
+pointer-events:auto;
 
 }
 
-lastTouchEnd=now;
+`;
 
-},{passive:false});
+document.head.appendChild(notificationStyle);
 
 /*======================================================
-RESET PRODUCT STATES
+AUTO CLOSE MOBILE MENU (IF ADDED LATER)
 ======================================================*/
 
-window.addEventListener("resize",()=>{
+document.querySelectorAll(".navigation a").forEach((link)=>{
 
-if(window.innerWidth>768){
+link.addEventListener("click",()=>{
 
-document.querySelectorAll(".product").forEach(product=>{
-
-product.classList.remove("show-back");
+document.body.classList.remove("menu-open");
 
 });
-
-}
 
 });
 
 /*======================================================
-END OF SCRIPT
+IMAGE ERROR HANDLER
 ======================================================*/
 
-console.log("PLATINUMPESOS® Premium Store Loaded Successfully");
+document.querySelectorAll("img").forEach((image)=>{
+
+image.addEventListener("error",()=>{
+
+image.style.opacity=".35";
+
+console.warn(
+
+"Image failed to load:",
+
+image.src
+
+);
+
+});
+
+});
+
+/*======================================================
+STORE READY
+======================================================*/
+
+console.log(
+
+"%cPLATINUMPESOS® WEBSITE READY",
+
+"background:#000;color:#fff;padding:8px 14px;font-size:14px;font-weight:bold;border-radius:4px;"
+
+);
+
+console.log(
+
+"Version 4.0 Loaded Successfully"
+
+);
+
+/*======================================================
+END
+======================================================*/
