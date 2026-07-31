@@ -3,204 +3,126 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===============================
+    BASIC SEO
+    ================================ -->
 
-<title>PLATINUMPESOS® | NEW KIDS ON THE BLOCK</title>
+    <meta charset="UTF-8">
 
-<meta name="description" content="Official PLATINUMPESOS® Website. Premium Streetwear from Botswana.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<meta name="keywords" content="PLATINUMPESOS, Botswana, Streetwear, Fashion, Luxury, Hoodie, Tee">
+    <title>
+        PLATINUMPESOS® | NEW KIDS ON THE BLOCK
+    </title>
 
-<meta name="author" content="PLATINUMPESOS">
+    <meta
+        name="description"
+        content="Official Platinum Pesos Streetwear. Premium clothing from Botswana.">
 
-<meta name="theme-color" content="#000000">
+    <meta
+        name="keywords"
+        content="Platinum Pesos, Streetwear, Botswana, Hoodie, T-Shirt, Fashion">
 
-<meta property="og:title" content="PLATINUMPESOS®">
+    <meta
+        name="author"
+        content="PLATINUMPESOS">
 
-<meta property="og:description" content="NEW KIDS ON THE BLOCK">
+    <meta
+        name="theme-color"
+        content="#000000">
 
-<meta property="og:image" content="https://i.ibb.co/jPx1Y13V/ko.png">
+    <!-- ===============================
+    OPEN GRAPH
+    ================================ -->
 
-<meta property="og:type" content="website">
+    <meta
+        property="og:title"
+        content="PLATINUMPESOS®">
 
-<meta property="og:url" content="https://platinumpesos-glitch.github.io/platinumpesos/">
+    <meta
+        property="og:description"
+        content="NEW KIDS ON THE BLOCK">
 
-<link rel="icon" href="https://i.ibb.co/jPx1Y13V/ko.png">
+    <meta
+        property="og:type"
+        content="website">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta
+        property="og:image"
+        content="https://i.ibb.co/jPx1Y13V/ko.png">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- ===============================
+    FAVICON
+    ================================ -->
 
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        rel="icon"
+        href="https://i.ibb.co/jPx1Y13V/ko.png">
 
-<link rel="stylesheet" href="style.css">
+    <!-- ===============================
+    GOOGLE FONTS
+    ================================ -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- ===============================
+    FONT AWESOME
+    ================================ -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- ===============================
+    CSS
+    ================================ -->
+
+    <link
+        rel="stylesheet"
+        href="style.css">
 
 </head>
 
 <body>
 
-<!-- =========================================
-VIDEO GATE
-========================================= -->
+<!-- ===================================================
+VIDEO INTRO
+=================================================== -->
 
-<div id="video-gate">
+<div id="videoGate">
 
-<video
-id="intro-video"
-autoplay
-muted
-loop
-playsinline
-webkit-playsinline
-preload="auto">
+    <video
+        id="introVideo"
+        autoplay
+        muted
+        loop
+        playsinline>
 
-<source src="intro.mp4" type="video/mp4">
+        <source
+            src="intro.mp4"
+            type="video/mp4">
 
-</video>
+    </video>
 
-<div class="video-dark"></div>
-
-<div class="video-overlay">
-
-<img
-src="https://i.ibb.co/jPx1Y13V/ko.png"
-class="gate-logo"
-alt="PLATINUMPESOS Logo">
-
-<h1>PLATINUMPESOS</h1>
-
-<p>NEW KIDS ON THE BLOCK</p>
-
-<button id="enter-store">
-SHOP NOW
-</button>
-
-</div>
-
-</div>
-
-<!-- =========================================
-MAIN WEBSITE
-========================================= -->
-
-<div id="site-content"><!-- ==================================================
-INTRO
-================================================== -->
-
-<div id="intro">
-
-    <img
-        src="https://i.ibb.co/jPx1Y13V/ko.png"
-        class="intro-logo"
-        alt="PLATINUMPESOS Logo">
-
-    <h1>
-        PLATINUMPESOS
-    </h1>
-
-    <p>
-        NEW KIDS ON THE BLOCK
-    </p>
-
-</div>
-
-<!-- ==================================================
-TOP BAR
-================================================== -->
-
-<div class="top-bar">
-
-    <div class="top-bar-inner">
-
-        PLATINUMPESOS® • BOTSWANA • NEW KIDS ON THE BLOCK • WORLDWIDE STREETWEAR
-
-    </div>
-
-</div>
-
-<!-- ==================================================
-DELIVERY BAR
-================================================== -->
-
-<div class="delivery-bar">
-
-    <div class="delivery-track">
-
-        <span>
-
-            NATIONWIDE DELIVERY AVAILABLE • ORDER VIA WHATSAPP •
-            LIMITED STOCK • PREMIUM STREETWEAR •
-            PLATINUMPESOS® • NATIONWIDE DELIVERY AVAILABLE •
-            ORDER VIA WHATSAPP • LIMITED STOCK •
-            PREMIUM STREETWEAR •
-
-        </span>
-
-    </div>
-
-</div>
-
-<!-- ==================================================
-SHOPPING CART
-================================================== -->
-
-<div class="cart-icon" onclick="openCart()">
-
-    🛒
-
-    <span id="cart-count">
-
-        0
-
-    </span>
-
-</div>
-
-<div class="cart" id="cart">
-
-    <h2>
-
-        YOUR CART
-
-    </h2>
-
-    <div id="cart-items"></div>
-
-    <h3 id="total">
-
-        TOTAL : P0
-
-    </h3>
-
-    <button id="checkout">
-
-        PROCEED TO WHATSAPP
-
-    </button>
-
-    <button onclick="closeCart()">
-
-        CLOSE
-
-    </button>
-
-</div><!-- ==================================================
-HERO SECTION
-================================================== -->
-
-<section class="hero">
-
-    <div class="hero-content">
+    <div class="videoOverlay">
 
         <img
             src="https://i.ibb.co/jPx1Y13V/ko.png"
-            class="logo"
-            alt="PLATINUMPESOS Logo">
+            alt="Platinum Pesos"
+            class="introLogo">
 
         <h1>
 
-            PLATINUMPESOS
+            PLATINUMPESOS®
 
         </h1>
 
@@ -210,78 +132,587 @@ HERO SECTION
 
         </p>
 
-        <a href="#shop">
+        <button id="enterStore">
 
-            <button class="hero-btn">
+            SHOP NOW
 
-                SHOP COLLECTION
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ===================================================
+MAIN WEBSITE
+=================================================== -->
+
+<div id="website">
+<!-- ===================================================
+HEADER
+=================================================== -->
+
+<header class="header">
+
+    <div class="header-container">
+
+        <!-- Logo -->
+
+        <a href="#" class="logo-area">
+
+            <img
+                src="https://i.ibb.co/jPx1Y13V/ko.png"
+                alt="PLATINUMPESOS"
+                class="header-logo">
+
+            <span class="brand-name">
+
+                PLATINUMPESOS®
+
+            </span>
+
+        </a>
+
+        <!-- Navigation -->
+
+        <nav class="navigation">
+
+            <a href="#hero">HOME</a>
+
+            <a href="#shop">SHOP</a>
+
+            <a href="#footer">ABOUT</a>
+
+        </nav>
+
+        <!-- Icons -->
+
+        <div class="header-icons">
+
+            <button
+                class="icon-btn"
+                id="searchBtn"
+                aria-label="Search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
 
             </button>
 
-        </a>
+            <button
+                class="icon-btn cart-button"
+                id="cartButton"
+                aria-label="Shopping Cart">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <span id="cartCount">
+
+                    0
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ===================================================
+DELIVERY TICKER
+=================================================== -->
+
+<section class="ticker">
+
+    <div class="ticker-track">
+
+        <span>
+
+            NATIONWIDE DELIVERY •
+            ORDER VIA WHATSAPP •
+            PREMIUM STREETWEAR •
+            LIMITED RELEASES •
+
+            NATIONWIDE DELIVERY •
+            ORDER VIA WHATSAPP •
+            PREMIUM STREETWEAR •
+            LIMITED RELEASES •
+
+        </span>
 
     </div>
 
 </section>
 
-<!-- ==================================================
-SHOP
-================================================== -->
+<!-- ===================================================
+HERO
+=================================================== -->
 
-<section id="shop">
+<section
+    class="hero"
+    id="hero">
 
-    <h2>
-
-        AVAILABLE NOW
-
-    </h2>
-
-    <div class="products"><!-- ==================================================
-LADIES CROP TOP
-================================================== -->
-
-<div class="product">
-
-    <div class="product-image">
+    <div class="hero-content">
 
         <img
-            class="front-image"
-            src="https://i.ibb.co/Cpz1vdyW/0b30d212-2e27-455a-979b-bc9631a81c49-1.png"
-            alt="Ladies Crop Top Front">
+            src="https://i.ibb.co/jPx1Y13V/ko.png"
+            class="hero-logo"
+            alt="PLATINUMPESOS Logo">
 
-        <img
-            class="back-image"
-            src="https://i.ibb.co/rGW3d53H/034c2389-1f7d-4c2f-ba45-38d2b962e009.png"
-            alt="Ladies Crop Top Back">
+        <p class="hero-tag">
+
+            EST. BOTSWANA
+
+        </p>
+
+        <h1>
+
+            NEW KIDS<br>ON THE BLOCK
+
+        </h1>
+
+        <p class="hero-description">
+
+            Premium streetwear.
+            Designed with purpose.
+            Built to disturb.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#shop">
+
+                <button class="primary-btn">
+
+                    SHOP COLLECTION
+
+                </button>
+
+            </a>
+
+        </div>
 
     </div>
 
-    <div class="product-info">
+    <div class="hero-scroll">
+
+        <span>
+
+            SCROLL
+
+        </span>
+
+        <i class="fa-solid fa-chevron-down"></i>
+
+    </div>
+
+</section>
+
+<!-- ===================================================
+SHOP START
+=================================================== -->
+
+<section
+    id="shop"
+    class="shop">
+
+    <div class="shop-heading">
+
+        <p>
+
+            PLATINUMPESOS®
+
+        </p>
+
+        <h2>
+
+            SHOP COLLECTION
+
+        </h2>
+
+        <span>
+
+            Three collections.
+            One culture.
+
+        </span>
+
+    </div><!-- ===================================================
+SHOPPING CART
+=================================================== -->
+
+<aside
+    class="cart-drawer"
+    id="cartDrawer">
+
+    <div class="cart-header">
+
+        <h2>
+
+            YOUR CART
+
+        </h2>
+
+        <button
+            id="closeCart"
+            class="close-cart"
+            aria-label="Close Cart">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <div
+        class="cart-body"
+        id="cartItems">
+
+        <div class="empty-cart">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <p>
+
+                Your cart is empty.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>
+
+                TOTAL
+
+            </span>
+
+            <strong id="cartTotal">
+
+                P0
+
+            </strong>
+
+        </div>
+
+        <button
+            id="checkoutBtn"
+            class="checkout-btn">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            CHECKOUT VIA WHATSAPP
+
+        </button>
+
+    </div>
+
+</aside>
+
+<!-- ===================================================
+COLLECTION INTRO
+=================================================== -->
+
+<section class="collection-intro">
+
+    <div class="collection-line"></div>
+
+    <p>
+
+        CURRENT DROP
+
+    </p>
+
+    <h2>
+
+        SEASON COLLECTION
+
+    </h2>
+
+    <span>
+
+        Built for everyday wear.
+        Premium construction.
+        Limited quantities.
+
+    </span>
+
+</section>
+
+<!-- ===================================================
+PRODUCT GRID START
+=================================================== -->
+
+<div class="products-grid">
+
+<!-- ===================================================
+ESSENTIALS
+=================================================== -->
+
+<section
+    class="collection"
+    id="essentials">
+
+    <div class="collection-title">
+
+        <h2>
+
+            ESSENTIALS
+
+        </h2>
+
+        <p>
+
+            Core pieces.
+            Everyday rotation.
+
+        </p>
+
+    </div>
+
+    <div class="product-grid"><!-- ===================================================
+PRODUCT 01
+PP ESSENTIAL TEE [BLACK]
+=================================================== -->
+
+<article class="product-card" data-product="essential-black">
+
+    <div class="product-image-wrapper">
+
+        <div class="image-slider">
+
+            <img
+                src="https://i.ibb.co/gFFZGvFm/9f49eb10-6977-4b8c-a181-283ac3ccb1cd.png"
+                class="product-image active"
+                alt="PP Essential Tee Black Front">
+
+            <img
+                src="https://i.ibb.co/93b74QgJ/444744f4-db8b-4ab2-864a-daf88025c9e0.png"
+                class="product-image"
+                alt="PP Essential Tee Black Back">
+
+        </div>
+
+        <div class="slider-dots">
+
+            <button
+                class="slider-dot active"
+                data-index="0"
+                aria-label="Front">
+            </button>
+
+            <button
+                class="slider-dot"
+                data-index="1"
+                aria-label="Back">
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product-content">
+
+        <span class="product-category">
+
+            ESSENTIALS
+
+        </span>
 
         <h3>
 
-            LADIES CROP TOP
+            PP ESSENTIAL TEE [BLACK]
 
         </h3>
 
-        <p class="price">
+        <p class="product-price">
+
+            P267
+
+        </p>
+
+        <div class="size-options">
+
+            <button class="size-btn">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn">L</button>
+            <button class="size-btn">XL</button>
+
+        </div>
+
+        <button
+            class="cart-btn"
+            data-name="PP ESSENTIAL TEE [BLACK]"
+            data-price="267">
+
+            ADD TO CART
+
+        </button>
+
+    </div>
+
+</article>
+
+<!-- ===================================================
+PRODUCT 02
+PP ESSENTIAL TEE [RED]
+=================================================== -->
+
+<article class="product-card" data-product="essential-red">
+
+    <div class="product-image-wrapper">
+
+        <div class="image-slider">
+
+            <img
+                src="https://i.ibb.co/Rkt1zGpw/7406c37b-4314-4aef-b8e8-a053c7f44622.png"
+                class="product-image active"
+                alt="PP Essential Tee Red Front">
+
+            <img
+                src="https://i.ibb.co/HDvsHLBL/7e3a985c-41a8-4b3e-b9d0-0092ac75f7f1.png"
+                class="product-image"
+                alt="PP Essential Tee Red Back">
+
+        </div>
+
+        <div class="slider-dots">
+
+            <button
+                class="slider-dot active"
+                data-index="0"
+                aria-label="Front">
+            </button>
+
+            <button
+                class="slider-dot"
+                data-index="1"
+                aria-label="Back">
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product-content">
+
+        <span class="product-category">
+
+            ESSENTIALS
+
+        </span>
+
+        <h3>
+
+            PP ESSENTIAL TEE [RED]
+
+        </h3>
+
+        <p class="product-price">
+
+            P267
+
+        </p>
+
+        <div class="size-options">
+
+            <button class="size-btn">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn">L</button>
+            <button class="size-btn">XL</button>
+
+        </div>
+
+        <button
+            class="cart-btn"
+            data-name="PP ESSENTIAL TEE [RED]"
+            data-price="267">
+
+            ADD TO CART
+
+        </button>
+
+    </div>
+
+</article><!-- ===================================================
+PRODUCT 03
+PP ESSENTIAL CROP [WHITE]
+=================================================== -->
+
+<article class="product-card" data-product="essential-crop">
+
+    <div class="product-image-wrapper">
+
+        <div class="image-slider">
+
+            <img
+                src="https://i.ibb.co/Cpz1vdyW/0b30d212-2e27-455a-979b-bc9631a81c49-1.png"
+                class="product-image active"
+                alt="PP Essential Crop Front">
+
+            <img
+                src="https://i.ibb.co/rGW3d53H/034c2389-1f7d-4c2f-ba45-38d2b962e009.png"
+                class="product-image"
+                alt="PP Essential Crop Back">
+
+        </div>
+
+        <div class="slider-dots">
+
+            <button
+                class="slider-dot active"
+                data-index="0"
+                aria-label="Front">
+            </button>
+
+            <button
+                class="slider-dot"
+                data-index="1"
+                aria-label="Back">
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product-content">
+
+        <span class="product-category">
+
+            ESSENTIALS
+
+        </span>
+
+        <h3>
+
+            PP ESSENTIAL CROP [WHITE]
+
+        </h3>
+
+        <p class="product-price">
 
             P169
 
         </p>
 
-        <div class="sizes">
+        <div class="size-options">
 
-            <button>S</button>
-            <button>M</button>
-            <button>L</button>
-            <button>XL</button>
+            <button class="size-btn">XS</button>
+            <button class="size-btn">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn">L</button>
 
         </div>
 
         <button
-            class="add-cart"
-            data-name="Ladies Crop Top"
+            class="cart-btn"
+            data-name="PP ESSENTIAL CROP [WHITE]"
             data-price="169">
 
             ADD TO CART
@@ -290,153 +721,47 @@ LADIES CROP TOP
 
     </div>
 
-</div>
+</article>
 
-<!-- ==================================================
-CM TEE
-================================================== -->
+<!-- ===================================================
+PRODUCT 04
+PP ESSENTIAL SOCKS [WHITE/BLACK]
+=================================================== -->
 
-<div class="product">
+<article class="product-card" data-product="essential-socks">
 
-    <div class="product-image">
-
-        <img
-            class="front-image"
-            src="https://i.ibb.co/DgCWB91F/b067f148-0162-4242-b110-8fc9714e7efb.png"
-            alt="CM Tee Front">
+    <div class="product-image-wrapper">
 
         <img
-            class="back-image"
-            src="https://i.ibb.co/mVgxkGxn/6b60a7af-276a-4132-a44d-cefb08f11373.png"
-            alt="CM Tee Back">
-
-    </div>
-
-    <div class="product-info">
-
-        <h3>
-
-            CM TEE
-
-        </h3>
-
-        <p class="price">
-
-            P199
-
-        </p>
-
-        <div class="sizes">
-
-            <button>S</button>
-            <button>M</button>
-            <button>L</button>
-            <button>XL</button>
-
-        </div>
-
-        <button
-            class="add-cart"
-            data-name="CM Tee"
-            data-price="199">
-
-            ADD TO CART
-
-        </button>
-
-    </div>
-
-</div><!-- ==================================================
-PARADOXES HOODIE
-================================================== -->
-
-<div class="product">
-
-    <div class="product-image">
-
-        <img
-            class="front-image"
-            src="https://i.ibb.co/ynRPwKRG/f7dfa906-bb42-4aea-b867-fc8cf75f3adb.png"
-            alt="Paradoxes Hoodie Front">
-
-        <img
-            class="back-image"
-            src="https://i.ibb.co/G4ZzP7FX/22d4bb30-c627-4b6c-8a9e-b78de78a62a1.png"
-            alt="Paradoxes Hoodie Back">
-
-    </div>
-
-    <div class="product-info">
-
-        <h3>
-
-            PARADOXES HOODIE
-
-        </h3>
-
-        <p class="price">
-
-            P350
-
-        </p>
-
-        <div class="sizes">
-
-            <button>S</button>
-
-            <button>M</button>
-
-            <button>L</button>
-
-            <button>XL</button>
-
-        </div>
-
-        <button
-            class="add-cart"
-            data-name="Paradoxes Hoodie"
-            data-price="350">
-
-            ADD TO CART
-
-        </button>
-
-    </div>
-
-</div>
-
-<!-- ==================================================
-WHITE SOCK
-================================================== -->
-
-<div class="product">
-
-    <div class="product-image">
-
-        <img
-            class="front-image"
             src="https://i.ibb.co/HL3FmHb2/6bb802e0-9090-443e-a3df-e5e3490b73de.png"
-            alt="White Sock">
+            class="product-image single-image"
+            alt="PP Essential Socks">
 
     </div>
 
-    <div class="product-info">
+    <div class="product-content">
+
+        <span class="product-category">
+
+            ESSENTIALS
+
+        </span>
 
         <h3>
 
-            WHITE SOCK
+            PP ESSENTIAL SOCKS [WHITE/BLACK]
 
         </h3>
 
-        <p class="price">
+        <p class="product-price">
 
-            P80
+            P79
 
         </p>
 
-        <div class="sizes">
+        <div class="size-options">
 
-            <button class="active">
+            <button class="size-btn active-size">
 
                 ONE SIZE
 
@@ -445,9 +770,9 @@ WHITE SOCK
         </div>
 
         <button
-            class="add-cart"
-            data-name="White Sock"
-            data-price="80">
+            class="cart-btn"
+            data-name="PP ESSENTIAL SOCKS [WHITE/BLACK]"
+            data-price="79">
 
             ADD TO CART
 
@@ -455,40 +780,321 @@ WHITE SOCK
 
     </div>
 
+</article>
+
 </div>
 
-<!-- ==================================================
-PARADOXES BEANIE
-================================================== -->
+</section>
 
-<div class="product">
+<!-- ===================================================
+PARADOXES COLLECTION
+=================================================== -->
 
-    <div class="product-image">
+<section
+    class="collection"
+    id="paradoxes">
 
-        <img
-            class="front-image"
-            src="https://i.ibb.co/ycFQfFGc/3a07566c-0e26-47c8-8f24-304714cba76c.png"
-            alt="Paradoxes Beanie">
+    <div class="collection-header">
+
+        <span class="collection-label">
+
+            COLLECTION 02
+
+        </span>
+
+        <h2>
+
+            PARADOXES
+
+        </h2>
+
+        <p>
+
+            A contradiction between luxury and the streets.
+
+        </p>
 
     </div>
 
-    <div class="product-info">
+    <div class="product-grid"><!-- ===================================================
+PRODUCT 05
+PP PARADOXES HOODIE [BLACK]
+=================================================== -->
+
+<article
+    class="product-card"
+    data-product="paradoxes-hoodie">
+
+    <div class="product-image-wrapper">
+
+        <div class="image-slider">
+
+            <!-- FRONT -->
+
+            <img
+                src="https://i.ibb.co/ynRPwKRG/f7dfa906-bb42-4aea-b867-fc8cf75f3adb.png"
+                class="product-image active"
+                alt="PP Paradoxes Hoodie Black Front">
+
+            <!-- BACK -->
+
+            <img
+                src="https://i.ibb.co/G4ZzP7FX/22d4bb30-c627-4b6c-8a9e-b78de78a62a1.png"
+                class="product-image"
+                alt="PP Paradoxes Hoodie Black Back">
+
+        </div>
+
+        <!-- FRONT / BACK DOTS -->
+
+        <div class="slider-dots">
+
+            <button
+                type="button"
+                class="slider-dot active"
+                data-index="0"
+                aria-label="View front of PP Paradoxes Hoodie">
+            </button>
+
+            <button
+                type="button"
+                class="slider-dot"
+                data-index="1"
+                aria-label="View back of PP Paradoxes Hoodie">
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product-content">
+
+        <span class="product-category">
+
+            PARADOXES
+
+        </span>
 
         <h3>
 
-            PARADOXES BEANIE
+            PP PARADOXES HOODIE [BLACK]
 
         </h3>
 
-        <p class="price">
+        <p class="product-price">
+
+            P350
+
+        </p>
+
+        <div class="size-options">
+
+            <button
+                type="button"
+                class="size-btn">
+                S
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                M
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                L
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                XL
+            </button>
+
+        </div>
+
+        <button
+            type="button"
+            class="cart-btn"
+            data-name="PP PARADOXES HOODIE [BLACK]"
+            data-price="350">
+
+            ADD TO CART
+
+        </button>
+
+    </div>
+
+</article>
+
+
+<!-- ===================================================
+PRODUCT 06
+PP PARADOXES CROP [WHITE]
+=================================================== -->
+
+<article
+    class="product-card"
+    data-product="paradoxes-crop">
+
+    <div class="product-image-wrapper">
+
+        <div class="image-slider">
+
+            <!-- FRONT -->
+
+            <img
+                src="https://i.ibb.co/Cpz1vdyW/0b30d212-2e27-455a-979b-bc9631a81c49-1.png"
+                class="product-image active"
+                alt="PP Paradoxes Crop White Front">
+
+            <!-- BACK -->
+
+            <img
+                src="https://i.ibb.co/rGW3d53H/034c2389-1f7d-4c2f-ba45-38d2b962e009.png"
+                class="product-image"
+                alt="PP Paradoxes Crop White Back">
+
+        </div>
+
+        <!-- FRONT / BACK DOTS -->
+
+        <div class="slider-dots">
+
+            <button
+                type="button"
+                class="slider-dot active"
+                data-index="0"
+                aria-label="View front of PP Paradoxes Crop">
+            </button>
+
+            <button
+                type="button"
+                class="slider-dot"
+                data-index="1"
+                aria-label="View back of PP Paradoxes Crop">
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product-content">
+
+        <span class="product-category">
+
+            PARADOXES
+
+        </span>
+
+        <h3>
+
+            PP PARADOXES CROP [WHITE]
+
+        </h3>
+
+        <p class="product-price">
+
+            P169
+
+        </p>
+
+        <div class="size-options">
+
+            <button
+                type="button"
+                class="size-btn">
+                XS
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                S
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                M
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                L
+            </button>
+
+        </div>
+
+        <button
+            type="button"
+            class="cart-btn"
+            data-name="PP PARADOXES CROP [WHITE]"
+            data-price="169">
+
+            ADD TO CART
+
+        </button>
+
+    </div>
+
+</article><!-- ===================================================
+PRODUCT 07
+PP PARADOXES BEANIE
+=================================================== -->
+
+<article
+    class="product-card"
+    data-product="paradoxes-beanie">
+
+    <div class="product-image-wrapper">
+
+        <img
+            src="YOUR_BEANIE_IMAGE_URL"
+            class="product-image single-image"
+            alt="PP Paradoxes Beanie">
+
+    </div>
+
+    <div class="product-content">
+
+        <span class="product-category">
+
+            PARADOXES
+
+        </span>
+
+        <h3>
+
+            PP PARADOXES BEANIE
+
+        </h3>
+
+        <p class="product-price">
 
             P180
 
         </p>
 
+        <div class="size-options">
+
+            <button
+                type="button"
+                class="size-btn active-size">
+
+                ONE SIZE
+
+            </button>
+
+        </div>
+
         <button
-            class="add-cart"
-            data-name="Paradoxes Beanie"
+            type="button"
+            class="cart-btn"
+            data-name="PP PARADOXES BEANIE"
             data-price="180">
 
             ADD TO CART
@@ -497,110 +1103,335 @@ PARADOXES BEANIE
 
     </div>
 
-</div><!-- ==================================================
-SOLD OUT PRODUCT
-================================================== -->
-
-<div class="product sold">
-
-    <div class="sold-box">
-
-        SOLD OUT
-
-    </div>
-
-    <h3>
-
-        LD TEE
-
-    </h3>
-
-</div>
-
-<!-- ==================================================
-END PRODUCTS
-================================================== -->
-
-    </div>
-
-</section><!-- ==================================================
-IMPORTANT NOTICE
-================================================== -->
-
-<section class="notice">
-
-    <div class="notice-container">
-
-        <h2>
-
-            IMPORTANT NOTICE
-
-        </h2>
-
-        <p>
-
-            Available items are limited.
-            Stock may change without notice.
-
-        </p>
-
-        <p>
-
-            Orders are completed directly through WhatsApp after checkout.
-
-        </p>
-
-        <p>
-
-            Nationwide delivery is available across Botswana.
-            Delivery fees depend on your location and will be confirmed before payment.
-
-        </p>
-
-        <p>
-
-            Please ensure your phone number and delivery location are correct before submitting your order.
-
-        </p>
-
-        <h3>
-
-            platinumpesos@gmail.com
-
-        </h3>
+</article>
 
     </div>
 
 </section>
 
-<!-- ==================================================
-FOOTER
-================================================== -->
+<!-- ===================================================
+CASH MACHINE COLLECTION
+=================================================== -->
 
-<footer>
+<section
+    class="collection"
+    id="cashmachine">
 
-    <img
-        src="https://i.ibb.co/jPx1Y13V/ko.png"
-        class="footer-logo"
-        alt="PLATINUMPESOS Logo">
+    <div class="collection-header">
+
+        <span class="collection-label">
+
+            COLLECTION 03
+
+        </span>
+
+        <h2>
+
+            CASH MACHINE
+
+        </h2>
+
+        <p>
+
+            Signature graphics.
+            Limited release.
+
+        </p>
+
+    </div>
+
+    <div class="product-grid">
+
+<!-- ===================================================
+PRODUCT 08
+CM TEE
+=================================================== -->
+
+<article
+    class="product-card"
+    data-product="cm-tee">
+
+    <div class="product-image-wrapper">
+
+        <div class="image-slider">
+
+            <img
+                src="YOUR_CM_FRONT_IMAGE"
+                class="product-image active"
+                alt="CM Tee Front">
+
+            <img
+                src="YOUR_CM_BACK_IMAGE"
+                class="product-image"
+                alt="CM Tee Back">
+
+        </div>
+
+        <div class="slider-dots">
+
+            <button
+                type="button"
+                class="slider-dot active"
+                data-index="0"
+                aria-label="Front">
+            </button>
+
+            <button
+                type="button"
+                class="slider-dot"
+                data-index="1"
+                aria-label="Back">
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product-content">
+
+        <span class="product-category">
+
+            CASH MACHINE
+
+        </span>
+
+        <h3>
+
+            CM TEE
+
+        </h3>
+
+        <p class="product-price">
+
+            P199
+
+        </p>
+
+        <div class="size-options">
+
+            <button
+                type="button"
+                class="size-btn">
+                S
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                M
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                L
+            </button>
+
+            <button
+                type="button"
+                class="size-btn">
+                XL
+            </button>
+
+        </div>
+
+        <button
+            type="button"
+            class="cart-btn"
+            data-name="CM TEE"
+            data-price="199">
+
+            ADD TO CART
+
+        </button>
+
+    </div>
+
+</article>
+
+    </div>
+
+</section><!-- ===================================================
+STORE INFORMATION
+=================================================== -->
+
+<section class="store-information">
+
+    <div class="info-box">
+
+        <h3>
+
+            SHIPPING
+
+        </h3>
+
+        <p>
+
+            Nationwide delivery across Botswana.
+
+        </p>
+
+    </div>
+
+    <div class="info-box">
+
+        <h3>
+
+            PAYMENT
+
+        </h3>
+
+        <p>
+
+            Orders confirmed directly through WhatsApp.
+
+        </p>
+
+    </div>
+
+    <div class="info-box">
+
+        <h3>
+
+            QUALITY
+
+        </h3>
+
+        <p>
+
+            Premium heavyweight garments with limited releases.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ===================================================
+NEWSLETTER
+=================================================== -->
+
+<section class="newsletter">
 
     <h2>
 
-        PLATINUMPESOS®
+        JOIN THE COMMUNITY
 
     </h2>
 
     <p>
 
-        NEW KIDS ON THE BLOCK
+        Be the first to know about new drops.
 
     </p>
 
-    <small>
+    <form class="newsletter-form">
 
-        © 2026 PLATINUMPESOS®. ALL RIGHTS RESERVED.
+        <input
+            type="email"
+            placeholder="Enter your email"
+            required>
 
-    </small>
+        <button type="submit">
+
+            SUBSCRIBE
+
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ===================================================
+FOOTER
+=================================================== -->
+
+<footer id="footer">
+
+    <div class="footer-grid">
+
+        <div class="footer-column">
+
+            <img
+                src="https://i.ibb.co/jPx1Y13V/ko.png"
+                class="footer-logo"
+                alt="PLATINUMPESOS">
+
+            <p>
+
+                NEW KIDS ON THE BLOCK
+
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>
+
+                SHOP
+
+            </h4>
+
+            <a href="#essentials">
+
+                Essentials
+
+            </a>
+
+            <a href="#paradoxes">
+
+                Paradoxes
+
+            </a>
+
+            <a href="#cashmachine">
+
+                Cash Machine
+
+            </a>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>
+
+                CONTACT
+
+            </h4>
+
+            <a href="https://wa.me/YOURNUMBER">
+
+                WhatsApp
+
+            </a>
+
+            <a href="#">
+
+                Instagram
+
+            </a>
+
+            <a href="#">
+
+                TikTok
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 PLATINUMPESOS®. All Rights Reserved.
+
+        </p>
+
+    </div>
 
 </footer>
 
